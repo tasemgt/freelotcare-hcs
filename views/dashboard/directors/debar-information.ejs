@@ -1,0 +1,60 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Describes all services to be performed by a Program Director</p>
+              <a href="/dashboard/directors/debar-vendor?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Debar Vendor List Forms</a>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="card-header">
+                    <h3>
+                      Debar Vendor List:
+                    </h3>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="card-header">
+                    <p class="card-title">
+                      On a quarterly basis visit the Comptroller website.
+                    </p>
+                    <p>The Link is: &nbsp;<a href="https://comproller.texas.gov">https://comproller.texas.gov</a></p>
+                    <p>In the search space type in <strong>Debarred Vendor List</strong></p>
+                    <p class="card-title">
+                      The search will pull up vendors debarred from doing business with the State of Texas.
+                    </p>
+                    <p class="card-title">
+                      Print the list as evidence of compliance with the principle  and verify that none of the Vendors in the list are doing business with your Agency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

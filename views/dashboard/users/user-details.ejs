@@ -1,0 +1,95 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-text card-header-primary">
+              <div class="card-text">
+                <h4 class="card-title" style="font-size: 1.5rem"><%= person.role === 'director'? person.title:'' %> <%= person.firstName +' '+ person.lastName %></h4>
+                <p class="card-category" style="font-size: 1.1rem"><%= person.role === 'director'? 'Program Director': person.role %> @ <%= person.role === 'admin'? 'Free Lot Care': person.agency.name %></p>
+              </div>
+            </div>
+            <br/>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Email Address</h4>
+                    <p class="card-category">
+                      <%= person.email %>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Phone Number</h4>
+                    <p class="card-category">
+                      <%= person.phone %>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Social Security Number</h4>
+                    <p class="card-category">
+                      <%= person.ssn %>
+                    </p>
+                  </div>
+                </div>
+                <% if( person.role !== 'director') {%>
+                  <div class="col-md-3">
+                    <div class="card-header">
+                      <h4 class="card-title" style="font-weight:bold">Address</h4>
+                      <p class="card-category">
+                        <%= person.address %>
+                      </p>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Biography</h4>
+                    <p class="card-category">
+                      <%= person.bio %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <% if( person.role !== 'admin' ) { %>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="javascript:;" class="btn btn-danger btn-round">Deactivate Account</a>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

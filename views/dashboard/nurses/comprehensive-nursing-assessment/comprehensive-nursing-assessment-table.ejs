@@ -1,0 +1,77 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Comprehensive Nursing Assessment Forms</h4>
+              <p class="card-category">Lists all forms</p>
+              <a href="/dashboard/nurses/comprehensive-nursing-assessment?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Name of Individual
+                    </th>
+                    <th class="text-bold">
+                      Date of Birth
+                    </th>
+                    <th class="text-bold">
+                      Today's date
+                    </th>
+                    <th class="text-bold text-right">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% for(form of forms){ %>
+                    <tr>
+                      <td>
+                        <%= form.individualName %>
+                      </td>
+                      <td class="formatted-date">
+                        <%= form.dob%>
+                      </td>
+                      <td class="formatted-date">
+                        <%= form.todaysDate%>
+                      </td>
+                      <td class="text-right">
+                        <a href="/dashboard/applications" data-id="<%= JSON.stringify(form) %>" data-toggle="modal" data-target="#myModal" class="btn btn-link btn-info btn-just-icon like show-details"><i class="material-icons">description</i></a>
+                        <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

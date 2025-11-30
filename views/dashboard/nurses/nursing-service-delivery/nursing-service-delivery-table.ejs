@@ -1,0 +1,107 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Nursing Services Delivery Log - Billable Activities</h4>
+              <p class="card-category">Lists all forms</p>
+              <a href="/dashboard/nurses/nursing-service-delivery?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Individual Name
+                    </th>
+                    <th class="text-bold">
+                      Location
+                    </th>
+                    <th class="text-bold">
+                      Local Case Number
+                    </th>
+                    <th class="text-bold">
+                      Service Date
+                    </th>
+                    <th class="text-bold">
+                      Begin Time
+                    </th>
+                    <th class="text-bold">
+                      End Time
+                    </th>
+                    <th class="text-bold">
+                      Total Time
+                    </th>
+                    <th class="text-bold">
+                      Nurse Name
+                    </th>
+                    <th class="text-bold text-right">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                   <% for(form of forms){ %>
+                    <tr>
+                      <td>
+                        <%= form.individualName %>
+                      </td>
+                      <td>
+                        <%= form.location %>
+                      </td>
+                      <td>
+                        <%= form.lcNumber %>
+                      </td>
+                      <td class="formatted-date">
+                        <%= form.serviceDate %>
+                      </td>
+                      <td>
+                        <%= form.beginTime %>
+                      </td>
+                      <td>
+                        <%= form.endTime %>
+                      </td>
+                      <td>
+                        <%= form.totalTime %> mins
+                      </td>
+                      <td>
+                        <%= form.nurseName %>
+                      </td>
+                      <td class="text-right">
+                        <a href="#" rel="tooltip" data-original-title="View Form"  class="btn btn-link btn-info btn-just-icon like show-details"><i class="material-icons">description</i></a>
+                        <a href="#" rel="tooltip" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

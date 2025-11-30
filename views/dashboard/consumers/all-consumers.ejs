@@ -1,0 +1,143 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">All Consumers</h4>
+                  <p class="card-category">Lists all Registered Consumers under your Agency</p>
+                  <a href="/dashboard/consumers/add" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add Consumer</a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table data-table table-striped dataTable table-hover table-no-bordered">
+                      <thead class="text-primary">
+                        <th class="text-bold">
+                          First Name
+                        </th>
+                        <th class="text-bold">
+                          Last Name
+                        </th>
+                        <th class="text-bold">
+                          Local Case/Care Number
+                        </th>
+                        <th class="text-bold">
+                          Date of Birth
+                        </th>
+                        <th class="text-bold">
+                          Phone Number
+                        </th>
+                        <th class="text-bold">
+                          Forms Uploaded
+                        </th>
+                        <th class="text-bold text-right">
+                          Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% for(consumer of consumers){ %>
+                          <tr>
+                            <td>
+                              <%= consumer.firstName %>
+                            </td>
+                            <td>
+                              <%= consumer.lastName %>
+                            </td>
+                            <td class="text-info" style="font-size: 1.1rem; font-weight:bolder">
+                              <%= consumer.lcNumber %>
+                            </td>
+                            <td class="formatted-date">
+                              <%= consumer.dob %>
+                            </td>
+                            <td>
+                              <%= consumer.phone %>
+                            </td>
+                            <td class="text-center">
+                              <%= consumer.forms.length %>
+                            </td>
+                            <td class="text-right">
+                              <a rel="tooltip" data-original-title="See Details" href="/dashboard/consumers/<%= consumer._id %>" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">person</i></a>
+                              <a rel="tooltip" data-original-title="Upload Form" href="#" data-toggle="modal" data-target="#consumerFormsModal" class="btn btn-link btn-success btn-just-icon upload-form"><i class="material-icons">upload</i></a>
+                              <a rel="tooltip" data-original-title="Edit" href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                              <a rel="tooltip" data-original-title="Delete" href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                            </td>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+
+<div class="modal fade" id="consumerFormsModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-weight: bold"> Upload a Consumer Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form id="consumer-upload-form_form">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="dropdown bootstrap-select select-lg">
+                  <select id="country" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select Form Type **" tabindex="-98">
+                    <option value="1">Dental Examination Form</option>
+                    <option value="2">Environmental Safety Checklist</option>
+                    <option value="3">Hot Water Assessment</option>
+                  </select>
+                  <div class="dropdown-menu " role="combobox">
+                    <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                      <ul class="dropdown-menu inner show"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <input type="file" accept='application/*' class="form__upload" id='consumer-upload-form' name='consumer-upload-form'>
+                <label for="consumer-upload-form" id="lab_consumer-upload-form">Select Form to Upload</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary pull-right" >Upload</button>
+        <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

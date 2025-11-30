@@ -1,0 +1,390 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Basic Consumer Forms</h4>
+                  <p class="card-category">Lists all basic forms</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table data-table">
+                      <thead class="text-primary">
+                        <th class="text-bold">
+                          Form Name
+                        </th>
+                        <th class="text-bold">
+                          Consumer Name
+                        </th>
+                        <th class="text-bold">
+                          Appointment Date
+                        </th>
+                        <th class="text-bold">
+                          Local Case Number
+                        </th>
+                        <th class="text-bold">
+                          Signatory
+                        </th>
+                        <th class="text-bold">
+                          Date
+                        </th>
+                        <th class="text-bold text-right">
+                          Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% for(form of forms){ %>
+                          <tr>
+                            <td>
+                              <%= form.formName %>
+                            </td>
+                            <td>
+                              <%= form.consumer.firstName + ' ' +form.consumer.lastName %>
+                            </td>
+                            <td class="formatted-date">
+                              <%= form.dateOfAppointment %>
+                            </td>
+                            <td>
+                              <%= form.lcNumber %>
+                            </td>
+                            <td>
+                              <%= form.signatoryName %>
+                            </td>
+                            <td class="formatted-date">
+                              <%= form.date %>
+                            </td>
+                            <td class="text-right">
+                              <a rel="tooltip" data-original-title="View Form" data-id="<%= JSON.stringify(form) %>" data-toggle="modal" data-target="#myModal" class="btn btn-link btn-info btn-just-icon like show-details"><i class="material-icons">description</i></a>
+                              <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                            </td>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-weight: bold"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- Dental Exam -->
+      <div class="modal-body dental-exam" style="display: none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Consumer Name</h5>
+              <p class="text-muted modal-items mod-cons-name"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Appointment Date</h5>
+              <p class="text-muted modal-items mod-app-date"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Local Case Number</h5>
+              <p class="text-muted modal-items mod-lc-num"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Examiner</h5>
+              <p class="text-muted modal-items" id="mod-examiner"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="text-primary modal-headings">Diagnosis</h5>
+              <p class="text-muted modal-items" id="mod-diagnosis"></p>
+            </div>
+            <div class="col-md-6">
+              <h5 class="text-primary modal-headings">Prescription</h5>
+              <p class="text-muted modal-items" id="mod-prescription"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fire/Emergency Drill -->
+      <div class="modal-body fire-drill" style="display: none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Consumer Name</h5>
+              <p class="text-muted modal-items mod-cons-name"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Residential Type</h5>
+              <p class="text-muted modal-items mod-res-type"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Local Case Number</h5>
+              <p class="text-muted modal-items mod-lc-num"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Drill Official</h5>
+              <p class="text-muted modal-items" id="mod-official"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="text-primary modal-headings">Address</h5>
+              <p class="text-muted modal-items mod-address"></p>
+            </div>
+            <div class="col-md-6">
+              <h5 class="text-primary modal-headings">Fire Location</h5>
+              <p class="text-muted modal-items" id="mod-fire-location"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Date of Drill</h5>
+              <p class="text-muted modal-items mod-app-date"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Begin Time</h5>
+              <p class="text-muted modal-items" id="mod-begin-time"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">End Time</h5>
+              <p class="text-muted modal-items" id="mod-end-time"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Total Time</h5>
+              <p class="text-muted modal-items" id="mod-total-time"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="text-primary modal-headings">Num of Persons Evacuated</h5>
+              <p class="text-muted modal-items" id="mod-persons-evacuated"></p>
+            </div>
+            <div class="col-md-6">
+              <h5 class="text-primary modal-headings">Follow up on</h5>
+              <p class="text-muted modal-items" id="mod-follow-up"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hot Water / Fire Form -->
+      <div class="modal-body hot-water-fire" style="display: none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Consumer Name</h5>
+              <p class="text-muted modal-items mod-cons-name"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Appointment Date</h5>
+              <p class="text-muted modal-items mod-app-date"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Local Case Number</h5>
+              <p class="text-muted modal-items mod-lc-num"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Residential Type</h5>
+              <p class="text-muted modal-items mod-res-type"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Address</h5>
+              <p class="text-muted modal-items mod-address"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Needs</h5>
+              <p class="text-muted modal-items mod-needs"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Strengths</h5>
+              <p class="text-muted modal-items mod-strengths"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="text-primary modal-headings">Recommendations</h5>
+              <p class="text-muted modal-items mod-recommendations"></p>
+            </div>
+          </div>
+          <hr>
+          <h5 class="text-primary modal-headings">General Responses</h5>
+          <br>
+          <div class="row questions-section"></div>
+        </div>
+      </div>
+
+      <!-- Environmental Checklist Form -->
+      <div class="modal-body environmental-check" style="display: none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Consumer Name</h5>
+              <p class="text-muted modal-items mod-cons-name"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Appointment Date</h5>
+              <p class="text-muted modal-items mod-app-date"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Local Case Number</h5>
+              <p class="text-muted modal-items mod-lc-num"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Inspector Name</h5>
+              <p class="text-muted modal-items mod-inspector"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Inspection Title</h5>
+              <p class="text-muted modal-items mod-title"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Inspection Site</h5>
+              <p class="text-muted modal-items mod-site"></p>
+            </div>
+          </div>
+          <hr>
+          <h5 class="text-primary modal-headings">Details of Areas Inspected</h5>
+          <br>
+          <div class="row questions-section"></div>
+        </div>
+      </div>
+
+      <!-- Poison Assessment  Form -->
+      <div class="modal-body poison-assessment" style="display: none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Consumer Name</h5>
+              <p class="text-muted modal-items mod-cons-name"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Appointment Date</h5>
+              <p class="text-muted modal-items mod-app-date"></p>
+            </div>
+            <div class="col-md-4">
+              <h5 class="text-primary modal-headings">Local Case Number</h5>
+              <p class="text-muted modal-items mod-lc-num"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="text-primary modal-headings">Address</h5>
+              <p class="text-muted modal-items mod-address"></p>
+            </div>
+          </div>
+          <hr>
+          <h5 class="text-primary modal-headings">General Responses</h5>
+          <br>
+          <div class="row questions-section"></div>
+        </div>
+      </div>
+
+      <!-- Legal Assessment  Form -->
+      <div class="modal-body legal-assessment" style="display: none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Consumer Name</h5>
+              <p class="text-muted modal-items mod-cons-name"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Appointment Date</h5>
+              <p class="text-muted modal-items mod-app-date"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Local Case Number</h5>
+              <p class="text-muted modal-items mod-lc-num"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">D.O.B</h5>
+              <p class="text-muted modal-items mod-dob"></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Minor/Adult</h5>
+              <p class="text-muted modal-items mod-minor-adult"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Current Status</h5>
+              <p class="text-muted modal-items mod-current-status"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Recommendation</h5>
+              <p class="text-muted modal-items mod-recommendation"></p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="text-primary modal-headings">Type of Guardianship Recommended</h5>
+              <p class="text-muted modal-items mod-guardianship-type"></p>
+            </div>
+          </div>
+          <hr>
+          <h5 class="text-primary modal-headings">General Responses</h5>
+          <br>
+          <div class="row questions-section"></div>
+          <hr>
+          <div class="row">
+            <div class="col-md-10">
+              <h5 class="text-primary modal-headings">Action to be taken</h5>
+              <p class="text-muted modal-items mod-action"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <h5 class="tim-typo modal-headings">
+          Signed. | <span class="text-primary mod-signatory"></span>, &nbsp;
+          <span class="text-primary mod-sign-date"></span>
+        </h5>
+        <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

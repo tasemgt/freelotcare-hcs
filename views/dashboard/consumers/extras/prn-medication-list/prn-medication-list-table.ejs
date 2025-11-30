@@ -1,0 +1,89 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title "><%= title %></h4>
+                  <p class="card-category">Lists all forms</p>
+                  <a href="/dashboard/consumers/prn-medication-lists?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table data-table">
+                      <thead class="text-primary">
+                        <th class="text-bold">
+                          Consumer Name
+                        </th>
+                        <th class="text-bold">
+                          Date of Birth
+                        </th>
+                        <th class="text-bold">
+                          Local Case Number
+                        </th>
+                        <th class="text-bold">
+                          Allergies
+                        </th>
+                        <th class="text-bold">
+                          Physician's Name
+                        </th>
+                        <th class="text-bold text-right">
+                          Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% for(log of logs){ %>
+                          <tr>
+                            <td>
+                              <%= log.consumer.firstName +" "+ log.consumer.lastName %>
+                            </td>
+                            <td class="formatted-date">
+                              <%= log.dob %>
+                            </td>
+                            <td>
+                              <%= log.lcNumber %>
+                            </td>
+                            <td>
+                              <%= log.allergies.slice(0, 20) %> <%= log.allergies.length > 20 ? '...':'' %>
+                            </td>
+                            <td>
+                              <%= log.physicianName %>
+                            </td>
+                            <td class="text-right">
+                              <a href="/dashboard/applications" rel="tooltip" data-original-title="View Form"  class="btn btn-link btn-info btn-just-icon like show-details"><i class="material-icons">description</i></a>
+                              <a href="#" rel="tooltip" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                            </td>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

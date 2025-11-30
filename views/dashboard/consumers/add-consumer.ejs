@@ -1,0 +1,205 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Register a Consumer</h4>
+              <p class="card-category">Please fill in all required fields</p>
+              <a href="/dashboard/consumers" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">All Consumers</a>
+            </div>
+            <div class="card-body">
+              <form id="add_consumer">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">First Name *</label>
+                      <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Last Name *</label>
+                      <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNumber" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="dropdown bootstrap-select">
+                      <select id="country" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select a country *" tabindex="-98">
+                        <option value="+1">United States (+1)</option>
+                        <option value="+1">Canada (+1)</option>
+                        <option value="+44">United Kingdom (+44)</option>
+                        <option value="+234">Nigeria (+234)</option>
+                      </select>
+                      <div class="dropdown-menu " role="combobox">
+                        <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                          <ul class="dropdown-menu inner show"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Phone Number *</label>
+                      <input type="number" class="form-control" id="phone" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 checkbox-radios inline-options">
+                    <p>Behavior Plan</p>
+                    <div class="form-check" id="reviewPurpose">
+                      <label class="form-check-label">
+                        <input class="form-check-input" required type="radio" name="behaviorPlan" value="yes" id="behaviorPlan"> Yes
+                        <span class="circle"> <span class="check"></span></span>
+                      </label>
+                      <label class="form-check-label">
+                        <input class="form-check-input" required type="radio" name="behaviorPlan" value="no" checked> No
+                        <span class="circle"><span class="check"></span></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Birth *</label>
+                      <input type="text" class="form-control datepicker" id="dob" required>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Address *</label>
+                      <input type="text" class="form-control" id="address" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <h4>Eligibility and Enrollment Documents</h4>
+                <br>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="file" accept='application/*' class="form__upload" id='directed-plan' name='directed-plan'>
+                        <label for="directed-plan" id="lab_directed-plan">Person Directed Plan</label>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Expiry Date</label>
+                          <input type="text" class="form-control datepicker" id="exp-directed-plan" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="file" accept='application/*' class="form__upload" id='ipc' name='ipc'>
+                        <label for="ipc" id="lab_ipc">Individual Plan of Care (IPC)</label>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Expiry Date</label>
+                          <input type="text" class="form-control datepicker" id="exp-ipc" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="file" accept='application/*' class="form__upload" id='transfer-paper' name='transfer-paper'>
+                        <label for="transfer-paper" id="lab_transfer-paper">Transfer Paper</label>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Expiry Date</label>
+                          <input type="text" class="form-control datepicker" id="exp-transfer-paper" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="file" accept='application/*' class="form__upload" id='icap' name='icap'>
+                        <label for="icap" id="lab_icap">Inventory For Client And Agency Planning (ICAP)</label>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Expiry Date</label>
+                          <input type="text" class="form-control datepicker" id="exp-icap" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="file" accept='application/*' class="form__upload" id='idrc' name='idrc'>
+                        <label for="idrc" id="lab_idrc">Intellectual Disability and related condition (IDRC)</label>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Expiry Date</label>
+                          <input type="text" class="form-control datepicker" id="exp-idrc" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="file" accept='application/*' class="form__upload" id='consumer-rights' name='consumer-rights'>
+                        <label for="consumer-rights" id="lab_consumer-rights">Consumer Rights/Choice of Services and Delivery</label>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Expiry Date</label>
+                          <input type="text" class="form-control datepicker" id="exp-consumer-rights" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-sm-12">
+                    <h6>Select the Services to be provided to the consumer based on IPC and PDP</h6>
+                    <div class="row" id="consumer-services-row">
+                      <% for(service of services) { %>
+                        <div class="col-md-3 consultants-cols">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= service %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="add_consumer_btn" class="btn btn-primary pull-right">Register Consumer</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

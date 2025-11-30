@@ -1,0 +1,169 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/consumers/rss-sl-service?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="rss-sl-service-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNumber" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Place of Service(s) *</label>
+                      <input type="text" class="form-control" id="placeOfService" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Week of *</label>
+                      <input type="text" class="form-control" value="<%= week %>" id="week" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <div class="dropdown bootstrap-select" style="inline-block">
+                        <select id="dayOfWeek" class="response-select selectpicker" data-style="btn btn-light btn-round" title="Select day" tabindex="-98">
+                          <option value="Sunday">Sunday</option>
+                          <option value="Monday">Monday</option>
+                          <option value="Tuesday">Tuesday</option>
+                          <option value="Wednesday">Wednesday</option>
+                          <option value="Thursday">Thursday</option>
+                          <option value="Friday">Friday</option>
+                          <option value="Saturday">Saturday</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="dateOfWeek" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                    <p>RSS / SL ? (Check One)</p>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="logType" id="rss" value="rss" checked> RSS
+                        <span class="circle"> <span class="check"></span></span>
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="logType"  value="sl"> SL
+                        <span class="circle"><span class="check"></span></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div id="check-area">
+                  <% for(const [i, section] of sections.entries()) {%>
+                    <p class="check-section-title" style="font-weight: bold;"><%= section.title %></p>
+                    <div class="check-section row">
+                      <% for(const [j, item] of section.items.entries()) {%>
+                        <div class="col-md-2 checkbox" >
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= item %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                    <% } %>
+                    </div>
+                    <hr>
+                    <br>
+                  <% } %>
+                </div>
+                <br>
+                <h5 id="comment-title">Comment</h5>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="label-control">Date</label>
+                      <input type="text" class="form-control datepicker" id="dateOfComment">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Staff Initials</label>
+                      <input type="text" class="form-control" id="staffInitials">
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Comment</label>
+                      <input type="text" class="form-control" id="commentText">
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <h5>Signature</h5>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Employee Name *</label>
+                      <input type="text" class="form-control" id="employeeName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Initials *</label>
+                      <input type="text" class="form-control" id="initials" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Staff ID *</label>
+                      <input type="text" class="form-control" id="staffID" required>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

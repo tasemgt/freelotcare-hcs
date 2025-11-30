@@ -1,0 +1,98 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/directors/critical-incident?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="critical-incident-form">
+                <br>
+                <div class="row" style="padding: 0 1rem">
+                  <% if(!form) { %>
+                    <div class="col-md-10">
+                      <div class="dropdown bootstrap-select">
+                        <select id="month" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select Month *" tabindex="-98">
+                          <option value="January">January</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 text-right">
+                      <h3>Year: <%= year %></h3>
+                      <h4></h4>
+                    </div>
+                  <% } %>
+                  <% if(form) { %>
+                    <div class="col-md-10">
+                      <div class="dropdown bootstrap-select">
+                        <select id="month" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select Month *" tabindex="-98">
+                          <option value="<%= month %>"><%= month %></option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2 text-right">
+                      <h3>Year: <%= form.year %></h3>
+                      <h4></h4>
+                    </div>
+                 <% } %>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Completion*</label>
+                      <input type="text" class="form-control datepicker" id="dateOfCompletion" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>     
+                <input type="hidden" id="year" value="<%= year %>">
+                <% if(form) {%>
+                  <input type="hidden" id="hidden-form-id" value="<%= form._id %>">
+                <% } %>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

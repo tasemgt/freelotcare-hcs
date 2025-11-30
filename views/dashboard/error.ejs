@@ -1,0 +1,33 @@
+<%- include('../partials/header'); -%>
+
+<%- include('../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <main class="error-main">
+            <div class="error">
+              <div class="error__title">
+                  <h2 class="heading-secondary heading-secondary--error">Uh oh! Something went wrong! </h2>
+                  <h2 class="error__emoji">😢 🤯</h2>
+              </div>
+              <div class="error__msg"><%= message %></div>
+            </div>
+        </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <%- include('../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../partials/footer'); -%>

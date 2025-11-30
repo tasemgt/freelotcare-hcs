@@ -1,0 +1,194 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/directors/minor-adaptive-summary?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="minor-adaptive-summary-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Component Code *</label>
+                      <input type="text" class="form-control" id="componentCode" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Contract Number *</label>
+                      <input type="text" class="form-control" id="contractNumber" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="dropdown bootstrap-select">
+                      <select id="serviceMonth" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select Month *" tabindex="-98">
+                        <% for(month of months) { %>
+                          <option value="<%= month %>"><%= month %></option>
+                        <% } %>
+                      </select>
+                      <div class="dropdown-menu " role="combobox">
+                        <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                          <ul class="dropdown-menu inner show"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="dropdown bootstrap-select">
+                      <select id="serviceYear" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select Year *" tabindex="-98">
+                        <% for(year of years) { %>
+                          <option value="<%= year %>"><%= year %></option>
+                        <% } %>
+                      </select>
+                      <div class="dropdown-menu " role="combobox">
+                        <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                          <ul class="dropdown-menu inner show"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Contact Person *</label>
+                      <input type="text" class="form-control" id="contactPerson" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Area Code *</label>
+                      <input type="text" class="form-control" id="areaCode" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Telephone Number *</label>
+                      <input type="text" class="form-control" id="telephoneNumber" required>
+                    </div>
+                  </div>
+                </div>
+                <br><br>
+                  <div id="entries-area">
+                    <% for(item of (new Array(15).keys())) {%>
+                      <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Name (Last, First, Initial)</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Client Care ID No.</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="label-control">Date</label>
+                            <input type="text" class="form-control datepicker">
+                          </div>
+                          <br>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <h6>Minor Home Modification</h6>
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Service Code.</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br><br>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <h6>&nbsp;</h6>
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Dollars Spent</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br><br>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <h6>&nbsp;</h6>
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Requisition Fee</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br><br>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <h6>Adaptive Aids</h6>
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Service Code.</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br><br>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <h6>&nbsp;</h6>
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Dollars Spent</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br><br>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <h6>&nbsp;</h6>
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Requisition Fee</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <br><br>
+                        </div>
+                      </div>
+                    <% } %>
+                  </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Signature *</label>
+                      <input type="text" class="form-control" id="signature" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

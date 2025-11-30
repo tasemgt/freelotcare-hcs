@@ -1,0 +1,90 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Supported Home Living / CS / CFC-PAS / Habilitation Forms</h4>
+              <p class="card-category">Lists all forms</p>
+              <a href="/dashboard/consumers/supported-home-living?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Consumer Name
+                    </th>
+                    <th class="text-bold">
+                      Local Case Number
+                    </th>
+                    <th class="text-bold">
+                      Staff
+                    </th>
+                    <th class="text-bold">
+                      Number of Records
+                    </th>
+                    <th class="text-bold">
+                      Number of Comments
+                    </th>
+                    <th class="text-bold text-right">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% for(form of forms){ %>
+                      <tr>
+                        <td>
+                          <%= form.consumer.firstName +" "+ form.consumer.lastName %>
+                        </td>
+                        <td>
+                          <%= form.lcNumber %>
+                        </td>
+                        <td>
+                          <%= form.staff.firstName +" "+ form.staff.lastName %>
+                        </td>
+                        <td>
+                          <%= form.records.length %>
+                        </td>
+                        <td>
+                          <%= form.comments.length %>
+                        </td>
+                        <td class="text-right">
+                          <a href="/dashboard/consumers/supported-home-living/<%= form._id %>" rel="tooltip" data-original-title="View Form"  class="btn btn-link btn-info btn-just-icon"><i class="material-icons">description</i></a>
+                          <a href="/dashboard/consumers/supported-home-living?edit=true&id=<%= form._id %>" rel="tooltip" data-original-title="Add Records/Comments" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">edit</i></a>
+                          <a href="#" rel="tooltip"  class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                        </td>
+                      </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

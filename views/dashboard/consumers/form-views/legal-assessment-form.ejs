@@ -1,0 +1,379 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+            </div>
+            <div class="card-body">
+              <form id="legal-assessment-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNum" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Appointment *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Birth *</label>
+                      <input type="text" class="form-control datepicker" id="dob" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Evaluator *</label>
+                      <input type="text" class="form-control" id="evaluator" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row"> 
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label">Minor / Adult *</label> <br>
+                      <div class="dropdown bootstrap-select" style="inline-block">
+                        <select id="minor-adult" class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select option" tabindex="-98">
+                          <option value="Minor">Minor</option>
+                          <option value="Adult">Adult</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label">Current Status *</label> <br>
+                      <div class="dropdown bootstrap-select" style="inline-block">
+                        <select id="current-status" class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select option" tabindex="-98">
+                          <option value="Minor">Minor</option>
+                          <option value="Minor in conservator ship">Minor in conservator ship</option>
+                          <option value="Adult with a guardian">Adult with a guardian</option>
+                          <option value="Adult without a guardian">Adult without a guardian</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label">Recommendation *</label> <br>
+                      <div class="dropdown bootstrap-select" style="inline-block">
+                        <select id="recommendation" class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select option" tabindex="-98">
+                          <option value="Guardian not indicated">Guardian not indicated</option>
+                          <option value="Guardian indicated">Guardian indicated</option>
+                          <option value="Guardianship not applicable">Guardianship not applicable</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label">Type of Guardianship Recommended *</label> <br>
+                      <div class="dropdown bootstrap-select" style="inline-block">
+                        <select id="guardianship-type" class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select option" tabindex="-98">
+                          <option value="Person">Person</option>
+                          <option value="Estate">Estate</option>
+                          <option value="Not Application">Not Application</option>
+                          <option value="Person and Estate">Person and Estate</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="legal-assessment-questionaire">
+                  <h5 style="font-weight: bold;">Select the appropriate response.</h5>
+                  <div class="row questionaire">
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>1. The consumer is able to make decisions which promote his/her health, safety and welfare:</p>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Medical</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-1" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-1" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Financial</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-2" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-2" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Programmatic</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-3" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-3" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>2. The Consumer is able to express preferences, choices, and provide input in the interdisciplinary Team process:</p>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Living Arrangement</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-4" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-4" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Leisure Activities </p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-5" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-5" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">HCS-O Services</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-6" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-6" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Generic Services</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-7" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-7" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Educational / Vocational Services</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-8" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-8" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>3. The consumer is capable of giving informed consent.</p>
+                      <div style="display:inline-block">
+                        <p hidden>The consumer is capable of giving informed consent.</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-9" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-9" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>4. The Consumer is capable of self advocacy and has demonstrated the exercise of his/her rights as evidenced by:</p>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Voting</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-10" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-10" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Receiving and Opening Mail</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-11" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-11" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Expressing wants and needs</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-12" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-12" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div style="display:inline-block">
+                        <p style="padding: 1rem 1rem 0 1rem">Obtaining citizenship information and education</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-13" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-13" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>5. The consumer is capable of registering complaints.</p>
+                      <div style="display:inline-block">
+                        <p hidden>The consumer is capable of registering complaints.</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-14" value="yes" checked=""> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-14" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- End of questionaire row -->
+                  <br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Action to be taken *</label>
+                        <textarea class="form-control" rows="5" id="action"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="consumer-forms-btn btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

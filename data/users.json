@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "Administrator",
+    "lastName": "Admin",
+    "email": "admin@hcs.com",
+    "phone": "08062254916",
+    "photo": "admin.jpg",
+    "bio": "Overall Admin",
+    "role": "admin",
+    "password": "password"
+  }
+]

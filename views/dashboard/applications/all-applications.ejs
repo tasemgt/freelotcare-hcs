@@ -1,0 +1,95 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">All Applications</h4>
+                  <p class="card-category">Lists all submitted job application forms</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table data-table table-striped dataTable table-hover table-no-bordered">
+                      <thead class="text-primary">
+                        <th class="text-bold">
+                          First Name
+                        </th>
+                        <th class="text-bold">
+                          Last Name
+                        </th>
+                        <th class="text-bold">
+                          Social Security Number
+                        </th>
+                        <th class="text-bold">
+                          High School
+                        </th>
+                        <th class="text-bold">
+                          Address
+                        </th>
+                        <th class="text-bold">
+                          Approved
+                        </th>
+                        <th class="text-bold text-right">
+                          Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% for(application of applications){ %>
+                          <tr>
+                            <td>
+                              <%= application.firstName %>
+                            </td>
+                            <td>
+                              <%= application.lastName %>
+                            </td>
+                            <td>
+                              <%= application.ssn %>
+                            </td>
+                            <td>
+                              <%= application.high_school %>
+                            </td>
+                            <td>
+                              <%= application.address %>
+                            </td>
+                            <td>
+                              <%= application.approved %>
+                            </td>
+                            <td class="text-right">
+                              <a href="/dashboard/applications/<%= application._id %>" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">description</i></a>
+                              <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                            </td>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

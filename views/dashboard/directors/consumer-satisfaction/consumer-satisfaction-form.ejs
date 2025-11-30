@@ -1,0 +1,128 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/directors/consumer-satisfaction?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="consumer-satisfaction-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNumber" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Person Interviewed *</label>
+                      <input type="text" class="form-control" id="personInterviewed" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Interview *</label>
+                      <input type="text" class="form-control datepicker" id="dateOfAppointment" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="dropdown bootstrap-select">
+                      <select id="quarterlyPeriod" class="selectpicker" data-size="8" data-style="btn btn-primary btn-round" title="Select Quarter*" tabindex="-98">
+                        <option value="JAN - MAR">JAN - MAR</option>
+                        <option value="APR - JUN">APR - JUN</option>
+                        <option value="JUL - SEP">JUL - SEP</option>
+                        <option value="OCT - DEC">OCT - DEC</option>
+                      </select>
+                      <div class="dropdown-menu " role="combobox">
+                        <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                          <ul class="dropdown-menu inner show"></ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br><br>
+                  <div class="row" id="check-area">
+                    <% for(const [i, item] of data.entries()) {%>
+                      <div class="col-md-5 checkbox-radios inline-options">
+                        <p><%= item %></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="<%=i+'-'+'option' %>" value="yes"> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="<%=i+'-'+'option' %>" value="no" checked> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div><br>
+                        <div class="form-group controls" style="width:80%">
+                          <label class="bmd-label-floating">Comment *</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    <% } %>
+                  </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Client / LAR's Signature*</label>
+                      <input type="text" class="form-control" id="clientLarSignature" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="clientLarSignatureDate" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Program Manager's Signature*</label>
+                      <input type="text" class="form-control" id="programManagerSignature" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Interview *</label>
+                      <input type="text" class="form-control datepicker" id="programManagerSignatureDate" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

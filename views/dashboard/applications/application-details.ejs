@@ -1,0 +1,207 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-text card-header-primary">
+              <div class="card-text">
+                <h4 class="card-title "><%= application.firstName + " " + application.lastName %></h4>
+                <p class="card-category">Kindly review application before approving</p>
+              </div>
+            </div>
+            <br/>
+            <div class="card-body">
+              <div class="row">
+                <div class="card-header col-md-3">
+                  <h4 class="card-title" style="font-weight:bold">Email Address</h4>
+                  <p class="card-category">
+                    <%= application.email %>
+                  </p>
+                </div>
+                <div class="card-header col-md-3">
+                  <h4 class="card-title" style="font-weight:bold">Social Security Number</h4>
+                  <p class="card-category">
+                    <%= application.ssn %>
+                  </p>
+                </div>
+                <div class="card-header col-md-3">
+                  <h4 class="card-title" style="font-weight:bold">High School</h4>
+                  <p class="card-category">
+                    <%= application.high_school %>
+                  </p>
+                </div>
+                <div class="card-header col-md-3">
+                  <h4 class="card-title" style="font-weight:bold">Address</h4>
+                  <p class="card-category">
+                    <%= application.address %>
+                  </p>
+                </div>
+              </div>
+              <br>
+              <div class="row" style="padding: 0 2rem;">
+                  
+                  <div class="card-body col-md-4" style="padding:0px">
+                    <h4 class="card-title">References</h4>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead class="">
+                          <th class="text-bold">
+                            S/N
+                          </th>
+                          <th class="text-bold">
+                            Name
+                          </th>
+                          <th class="text-bold">
+                            Phone
+                          </th>
+                        </thead>
+                        <tbody>
+                          <% for(const [index, referee] of application.references.entries()){ %>
+                            <tr>
+                              <td>
+                                <%= index + 1 %>.
+                              </td>
+                              <td>
+                                <%= referee.name %>
+                              </td>
+                              <td>
+                                <%= referee.phone %>
+                              </td>
+                            </tr>
+                          <% } %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="col-md-1"></div>
+                    <div class="card-body col-md-6" style="padding:0px">
+                      <h4 class="card-title">Documents</h4>
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead class="">
+                            <th class="text-bold">
+                              S/N
+                            </th>
+                            <th class="text-bold">
+                              Document Category
+                            </th>
+                            <th class="text-bold">
+                              Document Name
+                            </th>
+                            <th class="text-bold">
+                              Expiry Date
+                            </th>
+                            <th class="text-bold">
+                              View
+                            </th>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                1.
+                              </td>
+                              <td>
+                                Driving License or state ID
+                              </td>
+                              <td>
+                                <%= application.idCard.file.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= application.idCard.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/applications/download?file=<%= application.idCard.file %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                2.
+                              </td>
+                              <td>
+                                Social Security Card
+                              </td>
+                              <td>
+                                <%= application.ssCard.split('/')[3] %>
+                              </td>
+                              <td>
+                                ---
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/applications/download?file=<%= application.ssCard %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                3.
+                              </td>
+                              <td>
+                                High School Diploma Certificate
+                              </td>
+                              <td>
+                                <%= application.highSchoolCert.split('/')[3] %>
+                              </td>
+                              <td>
+                                ---
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/applications/download?file=<%= application.highSchoolCert %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+              </div>
+              <br/>
+              <br/>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-sm-2 checkbox-radios" >
+                      <div class="form-check form-check-inline">
+                        <label class="col-form-label label-checkbox">Approve Application</label>
+                        <label class="form-check-label" for="approved" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <% if(application.approved){ %>
+                            <input class="form-check-input" id="approved" type="checkbox" checked>
+                          <% } else { %>
+                            <input class="form-check-input" id="approved" type="checkbox">
+                          <% } %>
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <button type="button" id="save_application_btn" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

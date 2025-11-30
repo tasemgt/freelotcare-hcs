@@ -1,0 +1,213 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/nurses/nursing-tasks-screening?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="nursing-tasks-screening-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Name of Program Participant *</label>
+                      <input type="text" class="form-control" id="programParticipant" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>
+                <br><br>
+                <div id="section-delegation">
+                  <h4 style="font-weight:bold">A. Physician Delegation (see form instructions for definition of physician delegation)</h4>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>Has a physician delegated all medical acts that will be completed by unlicensed staff?</p>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="section-a" id="section-a-check-yes" value="yes"> Yes
+                          <span class="circle"> <span class="check"></span></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="section-a" id="section-a-check-no" value="no" checked> No
+                          <span class="circle"><span class="check"></span></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div> <br>
+                <div id="section-administration">
+                  <h4>B. Medical Administration</h4>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-5 checkbox-radios inline-options">
+                      <p>Does the individual require administration of medication by a paid staff to ensure that medications are received safely?</p>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="section-b" value="yes"> Yes
+                          <span class="circle"> <span class="check"></span></span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="section-b" value="no" checked> No
+                          <span class="circle"><span class="check"></span></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div><br>
+                  <p>Includes the following routes of administration:</p>
+                  <div class="row">
+                    <% for(route of data.routes ) { %>
+                    <div class="col-md-3 checkbox" >
+                      <div class="form-check form-check-inline">
+                        <label class="col-form-label label-checkbox"><%= route %></label>
+                        <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <% } %>
+                  </div>
+                  <br>
+                  <% for(sub of data.sections) { %> 
+                    <h5 class="sub-titles"><%= sub.title %></h5>
+                    <div class="sub-section">
+                      <div class="row">
+                        <% for(item of sub.items ) { %>
+                        <div class="col-md-12 checkbox" >
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= item %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  <% } %>
+                </div>
+                <br>
+                <div id="section-signatures">
+                  <h4>C. Signatures</h4>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Signature – Individual or Legally Authorized Representative *</label>
+                        <input type="text" class="form-control" id="individualSignature" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="label-control">Date *</label>
+                        <input type="text" class="form-control datepicker" id="individualDate" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Signature – Program Provider Representative *</label>
+                        <input type="text" class="form-control" id="providerSignature" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="label-control">Date *</label>
+                        <input type="text" class="form-control datepicker" id="providerDate" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="section-review">
+                  <h4>D. Program Provider Review</h4>
+                  <p>If “Yes” is the response in Section A, an RN nursing assessment is not required.</p>
+                  <p>
+                    Please review the “Yes” responses in Section “B” and document if any of these tasks will be performed by an HCS or TxHmL program provider
+                    staff person. If any of the tasks will be performed by the HCS or TxHmL program provider, an RN nursing assessment must be completed by
+                    the provider’s RN.
+                  </p>
+                  <p>
+                    In addition, if nursing hours are authorized on the Individualized Plan of Care (IPC), an RN assessment must be completed by the provider’s
+                    RN. Any individual who receives services from an LVN participating in the LVN On-Call Pilot must have a RN assessment by the provider’s RN.
+                  </p>
+                  <div class="row">
+                    <% for(review of data.reviews) { %>
+                    <div class="col-md-6 checkbox" >
+                      <div class="form-check form-check-inline">
+                        <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                        <label class="col-form-label label-checkbox"><%= review %></label>
+                      </div>
+                    </div>
+                    <% } %>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Signature – Program Provider Representative *</label>
+                        <input type="text" class="form-control" id="finalSignature" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Title *</label>
+                        <input type="text" class="form-control" id="finalTitle" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="label-control">Service Date *</label>
+                        <input type="text" class="form-control datepicker" id="finalDate" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

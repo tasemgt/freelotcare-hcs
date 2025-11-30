@@ -1,0 +1,244 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+            </div>
+            <div class="card-body">
+              <form id="hot_fire_form">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNum" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Appointment *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Address *</label>
+                      <input type="text" class="form-control" id="address" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Residential Type *</label>
+                      <input type="text" class="form-control" id="resType" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Strengths (Optional)</label>
+                      <input type="text" class="form-control" id="strengths">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Needs (Optional)</label>
+                      <input type="text" class="form-control" id="needs">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Recommendations</label>
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Make some recommendations (Optional)</label>
+                        <textarea class="form-control" rows="5" id="recommendations"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <% if(type === 'hot-water'){ %>
+                  <div class="hot-water-questionaire">
+                    <h5 style="font-weight: bold;">Select the appropriate response.</h5>
+                    <div class="row questionaire">
+                      <div class="col-md-4 response">
+                        <label class="bmd-label">1. Client can identify hot water</label> <br/>
+                        <div class="dropdown bootstrap-select">
+                          <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                            <option value="Physical assistance">Physical assistance</option>
+                            <option value="Verbal prompting">Verbal prompting</option>
+                            <option value="Independently">Independently</option>
+                          </select>
+                          <div class="dropdown-menu " role="combobox">
+                            <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                              <ul class="dropdown-menu inner show"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 response">
+                        <label class="bmd-label">2. Client can identify cold water</label> <br/>
+                        <div class="dropdown bootstrap-select">
+                          <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                            <option value="Physical assistance">Physical assistance</option>
+                            <option value="Verbal prompting">Verbal prompting</option>
+                            <option value="Independently">Independently</option>
+                          </select>
+                          <div class="dropdown-menu " role="combobox">
+                            <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                              <ul class="dropdown-menu inner show"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 response">
+                        <label class="bmd-label">3. Client knows how to use hot and cold water</label> <br/>
+                        <div class="dropdown bootstrap-select">
+                          <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                            <option value="Physical assistance">Physical assistance</option>
+                            <option value="Verbal prompting">Verbal prompting</option>
+                            <option value="Independently">Independently</option>
+                          </select>
+                          <div class="dropdown-menu " role="combobox">
+                            <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                              <ul class="dropdown-menu inner show"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 response">
+                        <label class="bmd-label">4. Client can adjust water temperature</label> <br/>
+                        <div class="dropdown bootstrap-select">
+                          <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                            <option value="Physical assistance">Physical assistance</option>
+                            <option value="Verbal prompting">Verbal prompting</option>
+                            <option value="Independently">Independently</option>
+                          </select>
+                          <div class="dropdown-menu " role="combobox">
+                            <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                              <ul class="dropdown-menu inner show"></ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- End of questionaire row -->
+
+                  </div> <!-- End of hot water questionaire section -->
+                <%} else { %>
+
+                  <div class="fire-evac-questionaire">
+                  <h5 style="font-weight: bold;">Select the appropriate response.</h5>
+                  <div class="row questionaire">
+                    <div class="col-md-4 response">
+                      <label class="bmd-label">1. Client can choose primary escape route</label> <br/>
+                      <div class="dropdown bootstrap-select">
+                        <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                          <option value="Physical assistance">Physical assistance</option>
+                          <option value="Verbal prompting">Verbal prompting</option>
+                          <option value="Independently">Independently</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 response">
+                      <label class="bmd-label">2. Client can choose alternate escape route during fire drill</label> <br/>
+                      <div class="dropdown bootstrap-select">
+                        <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                          <option value="Physical assistance">Physical assistance</option>
+                          <option value="Verbal prompting">Verbal prompting</option>
+                          <option value="Independently">Independently</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 response">
+                      <label class="bmd-label">3. Client can stay at designated safety waiting area.</label> <br/>
+                      <div class="dropdown bootstrap-select">
+                        <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                          <option value="Physical assistance">Physical assistance</option>
+                          <option value="Verbal prompting">Verbal prompting</option>
+                          <option value="Independently">Independently</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 response">
+                      <label class="bmd-label">4. Client can identify fire alarm sound</label> <br/>
+                      <div class="dropdown bootstrap-select">
+                        <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                          <option value="Physical assistance">Physical assistance</option>
+                          <option value="Verbal prompting">Verbal prompting</option>
+                          <option value="Independently">Independently</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 response">
+                      <label class="bmd-label">5. Client can identify the device to sound fire alarm</label> <br/>
+                      <div class="dropdown bootstrap-select">
+                        <select class="response-select selectpicker" data-size="8" data-style="btn btn-light btn-round" title="Select response" tabindex="-98">
+                          <option value="Physical assistance">Physical assistance</option>
+                          <option value="Verbal prompting">Verbal prompting</option>
+                          <option value="Independently">Independently</option>
+                        </select>
+                        <div class="dropdown-menu " role="combobox">
+                          <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1">
+                            <ul class="dropdown-menu inner show"></ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- End of questionaire row -->
+
+                </div> <!-- End of fire evacuation questionaire section -->
+
+                <% } %>
+
+                <input type="hidden" id="formName" value="<%= title %>" required>
+                <button type="submit" class="consumer-forms-btn btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

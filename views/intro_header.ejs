@@ -1,0 +1,86 @@
+<!--
+=========================================================
+Material Kit - v2.0.7
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-kit
+Copyright 2020 Creative Tim (https://www.creative-tim.com/)
+
+Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    <%= title %>
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/css/material-kit.css?v=2.0.7" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body class="login-page sidebar-collapse" 
+    style="background-image: url('/img/bg1.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-position: center;">
+  <nav class="navbar navbar-dark bg-dark navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand nav-logo" href="/">
+          <img src="/img/hhs-logo-inverse.png" alt="HHS Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">  
+        <% if(title === 'Login'){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="introNav" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">description</i> Apply Here <i class="material-icons">keyboard_arrow_down</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" style="right:auto" aria-labelledby="introNav">
+              <a class="dropdown-item" href="/employment">Nurse/Caregiver</a>
+              <a class="dropdown-item" href="/agency">Agency</a>
+            </div>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">
+              <i class="material-icons">login</i> Login
+            </a>
+          </li>
+        <% } %>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="#" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,122 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/nurses/rn-delegation-checklist?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="rn-delegation-checklist-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Provider Name *</label>
+                      <input type="text" class="form-control" id="providerName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Reviewer(s)/Individual(s) *</label>
+                      <input type="text" class="form-control" id="reviewerIndividual" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Contact No. / Component Code *</label>
+                      <input type="text" class="form-control" id="contractComponentCode" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div id="check-area">
+                  <% for(const [i,data] of datas.entries()) { %>
+                    <h4 class="section-title"><%= data.title %></h4>
+                    <div class="section">
+                      <% for(const [j,item] of data.items.entries()) {%>
+                        <div class="row">
+                          <p class="col-md-4">
+                            <%= typeof item === 'object'? item.tip : item %>
+                          </p>
+                          <% if(typeof item === 'string') { %>
+                          <div class="col-md-3 col-sm-5 checkbox-radios inline-options">
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="radio-<%=i+''+j%>" value="yes" checked> Yes
+                                <span class="circle"> <span class="check"></span></span>
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="radio-<%=i+''+j%>" value="no"> No
+                                <span class="circle"><span class="check"></span></span>
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="radio-<%=i+''+j%>" value="n/a"> N/A
+                                <span class="circle"><span class="check"></span></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-5 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Issues or Concerns *</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <% } else { %>
+                          <div class="col-md-8">
+                            #############
+                          </div>
+                          <% } %>
+                        </div>
+                      <% } %>
+                    </div>
+                    <% if(data.comments) { %>
+                      <% for(comment of data.comments){ %>
+                        <p style="font-weight:bold; font-style:italic"><%= comment %></p>
+                      <% } %>
+                    <% } %>
+                    <hr>
+                  <% } %>
+                </div>
+                <p style="font-weight:bold;">**Contact a waiver Survey and Certification RN for guidance, concerns or questions.</p>
+                <br>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

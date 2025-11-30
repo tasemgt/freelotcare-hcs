@@ -1,0 +1,104 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Fire / Emergency Drill </h4>
+              <p class="card-category">Please fill in all required fields</p>
+            </div>
+            <div class="card-body">
+              <form id="fire_emergency_form" autocomplete="on">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNum" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Drill Official *</label>
+                      <input type="text" class="form-control" id="official" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Total Persons Evacuated *</label>
+                      <input type="text" class="form-control" id="personsEvacuated" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Location of Stimulated Fire *</label>
+                      <input type="text" class="form-control" id="fireLocation" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Address *</label>
+                      <input type="text" class="form-control" id="address" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Residential Type *</label>
+                      <input type="text" class="form-control" id="resType" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="label-control">Drill Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="label-control">Begin Time *</label>
+                      <input type="text" class="form-control timepicker" id="beginTime" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="label-control">End Time *</label>
+                      <input type="text" class="form-control timepicker" id="endTime" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Required Follow Up Action</label>
+                      <input type="text" class="form-control" id="followUp">
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="consumer-forms-btn btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

@@ -1,0 +1,228 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-text card-header-primary">
+              <div class="card-text">
+                <h4 class="card-title "><%= consumer.firstName +' '+ consumer.lastName %></h4>
+                <p class="card-category">AGENCY: <%= consumer.agency.name %></p>
+              </div>
+            </div>
+            <br/>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Local Care Number</h4>
+                    <p class="card-category">
+                      <%= consumer.lcNumber %>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Phone Number</h4>
+                    <p class="card-category">
+                      <%= consumer.phone %>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Date of Birth</h4>
+                    <p class="card-category formatted-date">
+                      <%= consumer.dob %>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Address</h4>
+                    <p class="card-category">
+                      <%= consumer.address %>
+                    </p>
+                  </div>
+                </div>
+                  
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-5">
+                  <h4 class="card-title">Services selected to be provided for the consumer</h4>
+                    <% let counter = 1; for(service of consumer.consumerServices) {
+                      if(service.checked){ %>
+                        <p><%= counter +': '+ service.service %></p>
+                      <% counter++; } %>
+                    <% } %>
+                
+                </div>
+
+                <div class="col-md-7">
+                  <h4 class="card-title">Eligibility And Enrollment Documents</h4>
+                    <div class="card-body" style="padding:0px">
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead class="">
+                            <th class="text-bold">
+                              S/N
+                            </th>
+                            <th class="text-bold">
+                              Document Category
+                            </th>
+                            <th class="text-bold">
+                              Document Name
+                            </th>
+                            <th class="text-bold">
+                              Expiry Date
+                            </th>
+                            <th class="text-bold">
+                              View
+                            </th>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                1.
+                              </td>
+                              <td>
+                                Person Directed Plan
+                              </td>
+                              <td>
+                                <%= consumer.directedPlan.filename.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= consumer.directedPlan.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/consumers/download?file=<%= consumer.directedPlan.filename %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                2.
+                              </td>
+                              <td>
+                                Individual Plan of care (IPC)
+                              </td>
+                              <td>
+                                <%= consumer.ipc.filename.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= consumer.ipc.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/consumers/download?file=<%= consumer.ipc.filename %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                3.
+                              </td>
+                              <td>
+                                Transfer Paper
+                              </td>
+                              <td>
+                                <%= consumer.transferPaper.filename.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= consumer.transferPaper.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/consumers/download?file=<%= consumer.transferPaper.filename %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                4.
+                              </td>
+                              <td>
+                                Inventory for Client and Agency Planning (ICAP)
+                              </td>
+                              <td>
+                                <%= consumer.icap.filename.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= consumer.icap.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/consumers/download?file=<%= consumer.icap.filename %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                5.
+                              </td>
+                              <td>
+                                Intellectual Disability and Related Condition (IDRC)
+                              </td>
+                              <td>
+                                <%= consumer.idrc.filename.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= consumer.idrc.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/consumers/download?file=<%= consumer.idrc.filename %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                6.
+                              </td>
+                              <td>
+                                Consumer Rights/Choice of Services Delivery
+                              </td>
+                              <td>
+                                <%= consumer.consumerRights.filename.split('/')[3] %>
+                              </td>
+                              <td>
+                                <%= consumer.consumerRights.expiry %>
+                              </td>
+                              <td>
+                                <a rel="tooltip" data-original-title="View Document" href="/dashboard/consumers/download?file=<%= consumer.consumerRights.filename %>" target="_blank" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons icon-tiny">description</i></a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-5">
+                  <h4 class="card-title">Consumer Forms Uploaded</h4>
+                </div>
+              </div>
+                
+                
+              </div>
+              <br/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

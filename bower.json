@@ -1,0 +1,17 @@
+{
+  "name": "hcs",
+  "description": "Front end of hcs",
+  "main": "app.js",
+  "authors": [
+    "Michael Tase"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

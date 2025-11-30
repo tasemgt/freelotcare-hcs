@@ -1,0 +1,62 @@
+[
+  {
+    "firstName": "Michael",
+    "lastName": "Tase",
+    "email": "tasemgt@gmail.com",
+    "phone": "08062254916",
+    "photo": "mike.jpg",
+    "bio": "Mike is a pretty great nurse. He loves taking care of the sick and also providing great health services",
+    "role": "nurse",
+    "password": "password",
+    "address": "Fort royalle estate",
+    "ssn": "109232489"
+  },
+  {
+    "firstName": "Realwan",
+    "lastName": "Olarewaju",
+    "email": "o.realwan@gmail.com",
+    "phone": "08064340923",
+    "photo": "real.jpg",
+    "bio": "Real is a pretty great nurse. He loves taking care of the sick and also providing great health services",
+    "role": "nurse",
+    "password": "password",
+    "address": "Fort royalle estate",
+    "ssn": "109232445"
+  },
+  {
+    "firstName": "Nancy",
+    "lastName": "Tase",
+    "email": "silaesme@gmail.com",
+    "phone": "08064171115",
+    "photo": "nance.jpg",
+    "bio": "Nancy is a pretty great nurse. She loves taking care of the sick and also providing great health services",
+    "role": "nurse",
+    "password": "password",
+    "address": "Glossop road, Shefield, England",
+    "ssn": "987232489"
+  },
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@gmail.com",
+    "phone": "08034958374",
+    "photo": "johndoe.jpg",
+    "bio": "I have experience in providing care to people",
+    "role": "caregiver",
+    "password": "password",
+    "address": "Apo Dutse, Abuja",
+    "ssn": "111233480"
+  },
+  {
+    "firstName": "Yakubu",
+    "lastName": "Bello",
+    "email": "yaksmb@gmail.com",
+    "phone": "08037658361",
+    "photo": "yaks.jpg",
+    "bio": "I have experience in providing care to people",
+    "role": "caregiver",
+    "password": "password",
+    "address": "Die Die, Abuja",
+    "ssn": "125793480"
+  }
+]

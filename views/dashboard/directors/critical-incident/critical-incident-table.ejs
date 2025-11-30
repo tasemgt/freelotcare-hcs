@@ -1,0 +1,85 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Yearly Critical Incident Reports</h4>
+              <p class="card-category">Lists all yearly critical incident reports</p>
+              <a href="/dashboard/directors/critical-incident?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Year
+                    </th>
+                    <th class="text-bold">
+                      Last Filled Month
+                    </th>
+                    <th class="text-bold">
+                      Total Months Filled
+                    </th>
+                    <th class="text-bold">
+                      Director Name
+                    </th>
+                    <th class="text-bold">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% for(form of forms){ %>
+                    <tr>
+                      <td>
+                        <%= form.year %>
+                      </td>
+                      <td>
+                        <%= form.months[form.months.length - 1].month %>
+                      </td>
+                      <td>
+                        <%= form.months.length %>
+                      </td>
+                      <td>
+                        <%= form.director.firstName +' '+form.director.lastName %>
+                      </td>
+                      <td>
+                        <a href="/dashboard/directors/critical-incident/<%= form._id %>" rel="tooltip" data-original-title="View Form"  class="btn btn-link btn-info btn-just-icon"><i class="material-icons">description</i></a>
+                          <a href="/dashboard/directors/critical-incident?edit=true&id=<%= form._id %>" rel="tooltip" data-original-title="Add Month Records" class="btn btn-link btn-warning btn-just-icon"><i class="material-icons">edit</i></a>
+                        <a href="#" rel="tooltip" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

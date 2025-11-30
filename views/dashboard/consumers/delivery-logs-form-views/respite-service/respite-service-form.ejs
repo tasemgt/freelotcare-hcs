@@ -1,0 +1,139 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/consumers/respite-service-delivery?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="respite-service-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNumber" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Appointment *</label>
+                      <input type="text" class="form-control datepicker" id="dateOfAppointment" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Place of Service(s) *</label>
+                      <input type="text" class="form-control" id="placeOfService" required>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <br>
+                <div style="padding: 2rem">
+                  <h5 style="font-weight: bold; text-align:center">Check all areas in which you provided assistance to the person</h5>
+                  <br>
+                  <div id="time-log-area">
+                    <% for(const [i, section] of sections.entries()) {%>
+                        <div class="times-section">
+                          <p style="font-weight: bold;"><%= section.title %></p>
+                          <% for(const [j, item] of section.items.entries()) {%>
+                            <div class="row">
+                              <p class="col-md-2 col-sm-6"><%= item %></p>
+                              <div class="col-md-1 col-sm-6">
+                                <div class="form-group">
+                                  <label class="label-control">Time In</label>
+                                  <input type="text" class="form-control timepicker">
+                                </div>
+                              </div>
+                              <div class="col-md-1 col-sm-6">
+                                <div class="form-group">
+                                  <label class="label-control">Time Out</label>
+                                  <input type="text" class="form-control timepicker">
+                                  <p>Morning</p>
+                                </div>
+                              </div>
+                              <div class="col-md-1 col-sm-6">
+                                <div class="form-group">
+                                  <label class="label-control">Time In</label>
+                                  <input type="text" class="form-control timepicker">
+                                </div>
+                              </div>
+                              <div class="col-md-1 col-sm-6">
+                                <div class="form-group">
+                                  <label class="label-control">Time Out</label>
+                                  <input type="text" class="form-control timepicker">
+                                  <p>Afternoon</p>
+                                </div>
+                              </div>
+                              <div class="col-md-1 col-sm-6">
+                                <div class="form-group">
+                                  <label class="label-control">Time In</label>
+                                  <input type="text" class="form-control timepicker">
+                                </div>
+                              </div>
+                              <div class="col-md-1 col-sm-6">
+                                <div class="form-group">
+                                  <label class="label-control">Time Out</label>
+                                  <input type="text" class="form-control timepicker">
+                                  <p>Evening</p>
+                                </div>
+                              </div>
+                            </div>
+                        <% } %>
+                        </div>
+                      <% } %>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <h5>Comments (Special Events / Occurrences)</h5>
+                <div class="row">
+                  <div class="col-md-1">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Staff Initials</label>
+                      <input type="text" class="form-control" id="staffInitials" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Comment</label>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

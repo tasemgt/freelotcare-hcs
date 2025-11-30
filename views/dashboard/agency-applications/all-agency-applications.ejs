@@ -1,0 +1,83 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">All Agency Enrollment Applications</h4>
+              <p class="card-category">Lists all submitted agencies for enrollment</p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table table-striped dataTable table-hover table-no-bordered">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Agency Name
+                    </th>
+                    <th class="text-bold">
+                      Agency Location
+                    </th>
+                    <th class="text-bold">
+                      Agency Application ID
+                    </th>
+                    <th class="text-bold">
+                      Approved
+                    </th>
+                    <th class="text-bold text-right">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% for(agency of agencies){ %>
+                      <tr>
+                        <td>
+                          <%= agency.name %>
+                        </td>
+                        <td>
+                          <%= agency.location %>
+                        </td>
+                        <td>
+                          <%= agency.agencyId %>
+                        </td>
+                        <td>
+                          <%= agency.approved %>
+                        </td>
+                        <td class="text-right">
+                          <a href="/dashboard/agency-applications/<%= agency._id %>" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">description</i></a>
+                          <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                        </td>
+                      </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

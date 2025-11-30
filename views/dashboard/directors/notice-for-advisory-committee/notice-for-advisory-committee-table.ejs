@@ -1,0 +1,96 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Notice for Advisory Committee Meeting Forms</h4>
+              <p class="card-category">Lists all forms</p>
+              <a href="/dashboard/directors/notice-advisory?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Director Name
+                    </th>
+                    <th class="text-bold">
+                      Date
+                    </th>
+                    <th class="text-bold">
+                      Date of Meeeting
+                    </th>
+                    <th class="text-bold">
+                      Time of Meeting
+                    </th>
+                    <th class="text-bold">
+                      Venue
+                    </th>
+                    <th class="text-bold">
+                      CC:
+                    </th>
+                    <th class="text-bold">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% for(form of forms){ %>
+                    <tr>
+                      <td>
+                        <%= form.director.firstName + ' ' + form.director.lastName %>
+                      </td>
+                      <td class="formatted-date">
+                        <%= form.date %>
+                      </td>
+                      <td class="formatted-date">
+                        <%= form.dateOfMeeting %>
+                      </td>
+                      <td>
+                        <%= form.timeOfMeeting %>
+                      </td>
+                      <td>
+                        <%= form.venue %>
+                      </td>
+                      <td>
+                        <%= form.copy %>
+                      </td>
+                      <td>
+                        <a href="/dashboard/directors/notice-advisory/<%= form._id %>" rel="tooltip" data-original-title="View Form"  class="btn btn-link btn-info btn-just-icon"><i class="material-icons">description</i></a>
+                        <a href="#" rel="tooltip" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

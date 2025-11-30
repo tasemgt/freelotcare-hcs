@@ -1,0 +1,81 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/consumers/consent-medical-info?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="consent-medical-info-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNumber" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Social Security Number *</label>
+                      <input type="text" class="form-control" id="ssn" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Authorized Party *</label>
+                      <input type="text" class="form-control" id="authorizedParty" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Medical information is required for the following purpose(s) *</label>
+                        <textarea class="form-control" rows="5" id="purpose"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Limited to *</label>
+                        <textarea class="form-control" rows="5" id="limited"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

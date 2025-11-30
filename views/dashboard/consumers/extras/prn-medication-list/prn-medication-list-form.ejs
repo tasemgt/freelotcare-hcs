@@ -1,0 +1,117 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/consumers/respite-service-delivery?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="prn-medication-list">
+                <br>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNumber" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Birth *</label>
+                      <input type="text" class="form-control datepicker" id="dob" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Allergies (Seperated with commas) *</label>
+                      <input type="text" class="form-control" id="allergies" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <h4>The following medications may be used for this consumer for one (1) year as needed:</h4>
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul>
+                      <li>
+                      TYLENOL or generic equivalent (Acetaminophen) – 325mg 2 tablets every 4 hours for discomfort or temperature elevation.
+                      </li>
+                      <li>
+                      IMODIUM or generic equivalent (Loperamide) – 2 teaspoons every 30 minutes for diarrhea. Not to exceed 6 doses in a 24 hour period.
+                      </li>
+                      <li>
+                        ROBITUSSUN DM or generic equivalent (Guaifenesin) – 2 teaspoon every 4 hours for cough. Not to exceed 12 teaspoons in a 24 hour period.
+                      </li>
+                      <li>
+                        BENEDRYL or generic equivalent(Diphendydramine) – 25mg – 1 capsule/tablet every 4 hours for allergies or itching.
+                      </li>
+                      <li>
+                        SUDAFED or generic equivalent 60 mg – 1 tablet every 4 hours for cold symptoms. Not to exceed 4 does in a 24 hour period.
+                      </li>
+                      <li>
+                        MILK OF MAGNESIA or generic equivalent (magnesium salts) – 2 tablespoons daily for constipation. After use, drink 8oz of water.
+                      </li>
+                      <li>
+                        PEPTO BISMOL or generic equivalent (Bismuth Sub-Salicylate) – 2 tablespoons every hour as needed for indigestion or diarrhea. Not to exceed  8  doses in a 24 hour period.
+                      </li>
+                      <li>
+                        HYDROGEN PEROXIDE – Apply topically to affected area twice for rash.
+                      </li>
+                      <li>
+                        TRIPLE ANTIBIOTIC  OINTMENT – Apply topically to affected area 4 times daily for abrasions or skin breaks.
+                      </li>
+                      <li>
+                        IODINE SOLUTION 10%  - Apply directly to affected area.
+                      </li>
+                      <li>
+                        ASPIRIN 81MG  -  As  needed.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Additional PRN MEDS: (Seperated with commas) *</label>
+                      <input type="text" class="form-control" id="additionalPrnMeds" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Physician's Name *</label>
+                      <input type="text" class="form-control" id="physicianName" required>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

@@ -1,0 +1,2416 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all  fields</p>
+               <a href="/dashboard/nurses/comprehensive-nursing-assessment?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="comprehensive-nursing-assessment-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Name of Individual</label>
+                      <input type="text" class="form-control" id="individualName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Birth </label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Today's Date </label>
+                      <input type="text" class="form-control datepicker" id="todaysDate" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row" style="padding-left: 2rem">
+                  <div class="col-md-3 checkbox" >
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">I. Review</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="review-check" checked>
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 checkbox" >
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">II. Current Status</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="status-check">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 checkbox" >
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">III. Review of Systems</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="systems-check">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 checkbox" >
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">IV. Additional Health Status Info</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="health-check">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 checkbox" >
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">V. Implementation Assessment</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="assessment-check">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 checkbox" >
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">VI. Summary</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="summary-check">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div id="review-section">
+                  <h3 style="text-decoration:underline; display:inline-block">I. Review</h3>
+                  <div id="review-subsection">
+                    <br>
+                    <h4 id="healthcare-title">Review of Health Care Team</h4>
+                    <% for(review of data.review.healthCareTeam) { %>
+                      <div class="row healthcare-row">
+                        <h6 class="col-md-2 col-sm-12" style="margin-top:1rem"><%= review %></h6>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Health Care Practitioners</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="label-control">Date Last Seen </label>
+                            <input type="text" class="form-control datepicker">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Comments</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    <% } %>
+                    <% for(support of data.review.support) { %>
+                      <div class="row support-row">
+                        <h6 class="col-md-2 col-sm-12" style="margin-top:1rem"><%= support %></h6>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Relationship</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Telephone No</label>
+                            <input type="tel" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    <% } %>
+                    <br>
+                    <h4 id="history-title">Health History: Psychiatric and Medical Diagnosis</h4>
+                    <% for(health of data.review.healthHistory) { %>
+                      <div class="row history-row">
+                        <h6 class="col-md-2 col-sm-12" style="margin-top:1rem"><%= health %></h6>
+                        <div class="col-md-9 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Diagnosis</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    <% } %>
+                    <br>
+                    <h4 id="medication-title">Review of Current Medications (Include OTCs, vitamins and herbs)</h4>
+                    <br><hr><br>
+                    <div class="row signature-row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Registered Nurse </label>
+                          <input type="text" class="form-control" id="review-rn">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Individual </label>
+                          <input type="text" class="form-control" id="review-individual">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="review-date">
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" id="add-row-btn" style="margin-right: 1rem" class="btn btn-primary pull-right">Add Medication</button>
+                    <br><br>
+                  </div>
+                  <hr>
+                </div>
+                <br>
+                <!-- Status section begin -->
+                <div id="status-section">
+                  <h3 style="text-decoration:underline; display:inline-block">II. Current Status</h3>
+                  <div id="status-subsection">
+                    <br>
+                    <h4 id="status-title">Current medical and psychiatric history</h4>
+                    <div class="row" id="medical-history-row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Briefly describe recent changes in health or behavioral status, hospitalizations, falls, seizure activity, restraints, etc., within the past year</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>What is of primary concern/greatest expressed needs of the individual, legally authorized representative (LAR) or client's responsible adult (CRA) from their own perspective?</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="vital-title">Vital Signs</h4>
+                    <div class="row vital-row">
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Blood Pressure </label>
+                          <input type="text" class="form-control" id="bloodPressure">
+                        </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Pulse Rate </label>
+                              <input type="text" class="form-control" id="pulseRate">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Pulse Rhythm </label>
+                              <input type="text" class="form-control" id="pulseRhythm">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Respirations Rate </label>
+                              <input type="text" class="form-control" id="respirationsRate">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Respirations Rhythm </label>
+                              <input type="text" class="form-control" id="respirationsRhythm">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Temperature </label>
+                          <input type="text" class="form-control" id="vitalTemperature">
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Pain Level </label>
+                          <input type="text" class="form-control" id="painLevel">
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Blood Sugar </label>
+                          <input type="text" class="form-control" id="bloodSugar" >
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Weight </label>
+                          <input type="text" class="form-control" id="vitalWeight" >
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Height </label>
+                          <input type="text" class="form-control" id="vitalHeight" >
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="vitalComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="lab-title">Labs</h4>
+                    <div class="row labs-row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Briefly review ordered labs, dates and abnormal values within the past year.</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="vitalLabs"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row vital-signature-row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Registered Nurse </label>
+                          <input type="text" class="form-control"  id="vital-rn">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Individual </label>
+                          <input type="text" class="form-control"  id="vital-individual">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker"  id="vital-date">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="assessment-title">Fall Risk Assessment</h4>
+                    <div class="row">
+                      <div class="col-md-8 checkbox-radios inline-options">
+                        <p>Has a fall risk assessment been completed?</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-1" value="no" id="risk-assessment-check" checked> No
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-1" value="yes"> Yes (attached). Fall risk due to:
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                          <div class="row">
+                            <div class="col-md-2">
+                              <div class="form-check form-check-inline">
+                                <label class="col-form-label label-checkbox">Neurological</label>
+                                <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                                  <input class="form-check-input" type="checkbox" id="assessment-neurological">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-check form-check-inline">
+                                <label class="col-form-label label-checkbox">Musculoskeletal</label>
+                                <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                                  <input class="form-check-input" type="checkbox" id="assessment-musculoskeletal">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-check form-check-inline">
+                                <label class="col-form-label label-checkbox">Unknown</label>
+                                <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                                  <input class="form-check-input" type="checkbox" id="assessment-unknown">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="vitalComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Status section End -->
+                <br>
+                <!-- Review of Systems section begin -->
+                <div id="systems-section">
+                  <h3 style="text-decoration:underline; display:inline-block">III. Review of Systems</h3>
+                  <div id="systems-subsection">
+                    <br>
+                    <h4 id="neuro-title">Neurological</h4>
+                    <div class="row" id="neuro-aims-row">
+                      <div class="col-md-8 checkbox-radios inline-options">
+                        <p>Abnormal Involuntary Movement Scale (AIMS) Assessment:</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-1" value="attached" checked> Attached
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="radio-1" value="deferred"> Deferred
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" id="neuro-illness-row">
+                      <% for(const [i, illness] of data.systems.neurological.entries()) { %>
+                        <div class="col-md-4 checkbox-radios inline-options">
+                          <p><%= illness %></p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="illness-<%=i%>" value="yes" checked> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="illness-<%=i%>" value="no"> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                      <div class="col-md-6 checkbox-radios inline-options">
+                        <p>Seizures</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="illness-seizures" value="yes" id="seizures-check" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="illness-seizures" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Frequency </label>
+                              <input type="text" class="form-control"  id="seizures-freq">
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Duration </label>
+                              <input type="text" class="form-control"  id="seizures-duration">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="seizuresComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="eent-title">Eye, Ear, Nose and Throat</h4>
+                    <% for(section of data.systems.een) { %>
+                      <h5 class="eent-section-title" style="margin-bottom:0px"><%= section.title %></h5>
+                      <div class="row eent-row">
+                        <% for( check of section.checks) { %>
+                          <div class="col-md-3">
+                            <div class="form-check form-check-inline">
+                              <label class="col-form-label label-checkbox"><%= check %></label>
+                              <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                                <input class="form-check-input" type="checkbox">
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        <% } %>
+                      </div>
+                    <% } %>
+                    <div class="row">
+                      <div class="col-md-12 checkbox-radios inline-options">
+                        <p>Swallow study:</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="swallow-study" id="swallow-study" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="swallow-study" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="swallowDate" >
+                        </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Results </label>
+                          <input type="text" class="form-control"  id="throatResults">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Comments </label>
+                          <input type="text" class="form-control"  id="throatComments">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="cardio-title">Cardiovascular</h4>
+                    <div class="row" id="cardio-row">
+                    <% for(const [i, section] of data.systems.cardiovascular.entries()) { %>
+                      <div class="col-md-3">
+                        <p><%= section %></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="cardio-<%=i%>" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="cardio-<%=i%>" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    <% } %>
+                      <div class="col-md-6">
+                        <p>High/Low blood pressure</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="illness-bp" id="illness-bp" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="illness-bp" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Normal range: </label>
+                              <input type="text" class="form-control"  id="cardioRange">
+                            </div>
+                          </div>
+                          <div class="col-md-9 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Comments </label>
+                              <input type="text" class="form-control"  id="cardioComments">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="respiratory-title">Respiratory</h4>
+                    <h5>Breathing:</h5>
+                    <div class="row" id="breathing-row">
+                      <% for( check of data.systems.respiratory.breathing) { %>
+                        <div class="col-md-2">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= check %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <hr>
+                    <div class="row" id="breathing-illness-row">
+                      <% for(const [i, section] of data.systems.respiratory.illness.entries()) { %>
+                      <div class="col-md-3">
+                        <p><%= section %></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="respiratory-<%=i%>" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="respiratory-<%=i%>" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    <% } %>
+                      <div class="col-md-3">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <p>Oxygen @</p>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="respiratory-oxygen" id="respiratory-oxygen" value="yes" checked> Yes
+                                <span class="circle"> <span class="check"></span></span>
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="respiratory-oxygen" value="no"> No
+                                <span class="circle"><span class="check"></span></span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group controls">
+                              <input type="text" id="oxygen-type" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="respiratoryComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4 id="gastro-title">Gastrointestinal</h4>
+                    <div class="row" id="gastro-type-row">
+                      <% for( check of data.systems.gastro.type) { %>
+                        <div class="col-md-2">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= check %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row" id="gastro-bowel-row">
+                      <% for( field of data.systems.gastro.bowel) { %>
+                        <div class="col-md-4">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating"><%= field %> </label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row" id="gastro-others-row">
+                      <% for( const [i,other] of data.systems.gastro.others.entries()) { %>
+                        <div class="col-md-3">
+                          <p><%= other %></p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="gastro-<%=i%>" value="yes" checked> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="gastro-<%=i%>" value="no"> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Comments</label>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="5" id="gastroComments"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <h4 id="muscle-title">Musculoskeletal</h4>
+                  <div class="row" id="musculo-row">
+                    <% for( const [i,item] of data.systems.musculoskeletal.entries()) { %>
+                      <div class="col-md-3">
+                        <p><%= item %></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="muscle-<%=i%>" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="muscle-<%=i%>" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    <% } %>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Comments</label>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="5" id="muscloskeletalComments"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <h4 id="genito-title">Genitourinary</h4>
+                  <div class="row" id="genito-row">
+                    <% for( const [i,item] of data.systems.genitourinary.entries()) { %>
+                      <div class="col-md-3">
+                        <p><%= item %></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="genito-<%=i%>" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="genito-<%=i%>" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    <% } %>
+                    <div class="col-md-4">
+                      <p>Menopausal</p>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="menopausal-check" id="menopausal-check" value="yes" checked> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="menopausal-check" value="no"> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group controls">
+                            <label class="label-control">If yes, date of onset: </label>
+                            <input type="text" class="form-control datepicker" id="menopausalDate" >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2" style="padding-top:3rem">
+                      <div class="form-group controls">
+                        <label class="label-control">Date of last menstrual period:</label>
+                        <input type="text" class="form-control datepicker" id="menstrualDate" >
+                      </div>
+                    </div>
+                    <div class="col-md-5" style="padding-top:3rem">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Comments</label>
+                        <input type="text" class="form-control" id="genitoComments" >
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <!-- Begin Intergumentary -->
+                  <h4 id="integumentary-title">Integumentary</h4>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h5>SkinAssessment:</h5>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="skin-assessment-check" id="skin-assessment-check" value="attached" checked> Attached
+                          <span class="circle"> <span class="check"></span></span>
+                        </label>
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="skin-assessment-check" value="deferred"> Deferred
+                          <span class="circle"><span class="check"></span></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <h5>Skin:</h5>
+                  <div class="row" id="integumentary-skin-row">
+                  <% for( skin of data.systems.integumentary.skin) { %>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline">
+                        <label class="col-form-label label-checkbox"><%= skin %></label>
+                        <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  <% } %> 
+                  </div>
+                  <div class="row" id="integumentary-skin-illness">
+                    <% for( const [i,item] of data.systems.integumentary.illness.entries()) { %>
+                      <div class="col-md-3">
+                        <p style="margin:0px"><%= item %></p>
+                        <div class="form-check" style="margin-bottom:1rem">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="intergumentary-<%=i%>" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="intergumentary-<%=i%>" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    <% } %>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5" style="padding-top:3rem">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Comments</label>
+                        <input type="text" class="form-control" id="integumentaryComments" >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Intergumentary -->
+                  <br>
+                  <!-- Begin Endocrine -->
+                  <h4 id="endocrine-title">Endocrine</h4>
+                  <div class="row" id="endocrine-types">
+                    <% for( const [i,item] of data.systems.endocrine.types.entries()) { %>
+                      <div class="col-md-3">
+                        <p style="margin:0px"><%= item %></p>
+                        <div class="form-check" style="margin-bottom:1rem">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="endocrine-<%=i%>" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="endocrine-<%=i%>" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    <% } %>
+                      <div class="col-md-3" style="padding-right:0">
+                        <p>Diabetes</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="diabetes-type" value="yes" checked> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="diabetes-type" value="no"> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">If yes, type:</label>
+                          <input type="text" class="form-control"  id="diabetesType">
+                        </div>
+                      </div>
+                  </div>
+                  <h5>Diabetes Management:</h5>
+                  <div class="row" id="diabetes-management-row">
+                  <% for( item of data.systems.endocrine.diabetes) { %>
+                    <div class="col-md-3">
+                      <div class="form-check form-check-inline">
+                        <label class="col-form-label label-checkbox"><%= item %></label>
+                        <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  <% } %> 
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4" style="padding-top:3rem">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Desired blood sugar range:</label>
+                        <input type="text" class="form-control" id="bloodSugarRange" >
+                      </div>
+                    </div>
+                    <div class="col-md-5" style="padding-top:3rem">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Comments</label>
+                        <input type="text" class="form-control" id="endocrineComments" >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row signature-row">
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">RN </label>
+                        <input type="text" class="form-control" id="systems-rn">
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Individual </label>
+                        <input type="text" class="form-control" id="systems-individual">
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="label-control">Date </label>
+                        <input type="text" class="form-control datepicker" id="systems-date">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Review of Systems section End -->
+                <br>
+                <!-- Additional health status info section begin -->
+                <div id="health-section">
+                  <h3 style="text-decoration:underline; display:inline-block">IV. Additional Health Status Information</h3>
+                  <div id="health-subsection">
+                    <br>
+                    <h4>Immunizations: Date last received</h4>
+                    <div class="row" id="immunizations-row">
+                      <% for(immuno of data.healthStatus.immunizations){ %>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control"><%= immuno %></label>
+                          <input type="text" class="form-control datepicker">
+                        </div>
+                      </div>
+                     <% } %>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="immunoComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4>Nutritional Assessment</h4>
+                    <p>How nutrition is received</p>
+                    <div class="row" id="nutritional-type-row">
+                      <% for( assessment of data.healthStatus.nutritional.assessments) { %>
+                        <div class="col-md-3">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= assessment %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Liquid consistency</label>
+                          <input type="text" class="form-control" id="liquidConsistency" >
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Therapeutic diet</label>
+                          <input type="text" class="form-control" id="therapeuticDiet" >
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Food texture</label>
+                          <input type="text" class="form-control" id="foodTexture" >
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Reason/date/ordered by:</label>
+                          <input type="text" class="form-control" id="reasonOrderedBy" >
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">lbs.</label>
+                          <input type="text" class="form-control" id="gain-lbs" >
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">gain</label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="gain-check">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">loss over</label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="lossOver-check">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group controls">
+                          <input type="text" class="form-control" id="loss-over" >
+                        </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Desired weight range:</label>
+                          <input type="text" class="form-control" id="weightRange" >
+                        </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Number of meals/snacks per day:</label>
+                          <input type="text" class="form-control" id="numberOfMeals" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" id="nutritional-assessment-row">
+                      <% for(const [i, item] of data.healthStatus.nutritional.items.entries()) { %>
+                        <div class="col-md-4 checkbox-radios inline-options">
+                          <p><%= item %></p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="item-nutritional<%=i%>" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="item-nutritional<%=i%>" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="nutritionalComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h4>Sleep Patterns</h4>
+                        <p>Average number of hours per night; difficulty falling asleep; number of times awake at night; number of naps during a day:</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="sleepPatterns"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Activity Level/Exercise</h4>
+                        <p>&nbsp;</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="activityLevel"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Substance Use/Abuse</h4>
+                        <p>Caffeine, tobacco, alcohol, recreational drugs, history of non-compliance with prescribed medications:</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="substanceUse"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Home Life</h4>
+                        <p>Satisfaction/Desires:</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="homeLife"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Work/School/Day Activity</h4>
+                        <p>Satisfaction/Desires:</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="dayActivity"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Social Life</h4>
+                        <p>Satisfaction/Desires:</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="socialLife"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Spiritual Life</h4>
+                        <p>Satisfaction/Desires:</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="spiritualLife"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <h4>Coping Skills</h4>
+                        <p>&nbsp;</p>
+                        <div class="form-group">
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="copingSkills"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4>Mental Status</h4>
+                    <h5>1. Appearance</h5>
+                    <% for(app of data.healthStatus.mentalStatus.appearance) { %>
+                      <h6 class="appearance-title"><%= app.title %></h6>
+                      <div class="row appearance-row">
+                        <% for( item of app.items) { %>
+                          <div class="col-md-3">
+                            <div class="form-check form-check-inline">
+                              <label class="col-form-label label-checkbox"><%= item %></label>
+                              <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                                <input class="form-check-input" type="checkbox">
+                                <span class="form-check-sign">
+                                  <span class="check"></span>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                        <% } %>
+                      </div>
+                    <% } %>
+                    <br>
+                    <h5>2. Mood</h5>
+                    <div class="row" id="moods-row">
+                      <% for( item of data.healthStatus.mentalStatus.mood) { %>
+                        <div class="col-md-3">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= item %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <hr><br>
+                    <h5>Cognition</h5>
+                    <% for(const [i, cog] of data.healthStatus.cognition.entries()) { %>
+                      <div class="cognition-area">
+                        <h6><%= cog.title %></h6>
+                        <div class="row">
+                          <% for(const [j, item] of cog.items.entries()) { %>
+                            <div class="col-md-4 checkbox-radios inline-options">
+                              <p><%= item %></p>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="item-cognition<%=i+''+j%>" value="yes"> Yes
+                                  <span class="circle"> <span class="check"></span></span>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="item-cognition<%=i+''+j%>" value="no" checked> No
+                                  <span class="circle"><span class="check"></span></span>
+                                </label>
+                              </div>
+                            </div>
+                          <% } %>
+                        </div>
+                      </div>
+                    <% } %>
+                    <hr><br>
+                    <h5>Thoughts</h5>
+                    <% for(const [i, thought] of data.healthStatus.thoughts.entries()) { %>
+                      <div class="thoughts-area">
+                        <h6><%= thought.title %></h6>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="item-thoughts<%=i%>" value="yes"> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="item-thoughts<%=i%>" value="no" checked> No
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <p style="margin-bottom: 0">If Yes, then:</p>
+                        <div class="row">
+                          <% for(const [j, item] of thought.items.entries()) { %>
+                            <div class="col-md-4 checkbox-radios inline-options">
+                              <p><%= item %></p>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="item-thoughts<%=i+''+j%>" value="yes"> Yes
+                                  <span class="circle"> <span class="check"></span></span>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio" name="item-thoughts<%=i+''+j%>" value="no" checked> No
+                                  <span class="circle"><span class="check"></span></span>
+                                </label>
+                              </div>
+                            </div>
+                          <% } %>
+                        </div>
+                      </div>
+                      <br>
+                    <% } %>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="thoughtsComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr><br>
+                    <h5>Challenging Behaviors</h5>
+                    <div class="row" id="behavior-header">
+                      <% for(const [i, item] of data.healthStatus.behaviors.headers.entries()) { %>
+                        <div class="col-md-4 checkbox-radios inline-options">
+                          <p><%= item %></p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="behavior-header<%=i%>" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="behavior-header<%=i%>" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <p>Use the following scales below for frequency and severity:</p>
+                    <ul>
+                      <li>For frequency: 1 = less than once per month; 2 = 1 to 3 X month; 3 = 1 to 6 X week; 4 = 1 to 10 X day; and 5 = 1 or more X hour.</li>
+                      <li>For severity: 1 = mild; 2 = moderate; 3 = severe; and 4 = critical.</li>
+                    </ul>
+                    <br>
+                    <% for (item of data.healthStatus.behaviors.items) { %>
+                      <div class="row behavior-items">
+                        <div class="col-md-3">
+                          <p style="margin-top:1rem"><%= item %></p>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Frequency</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Severity</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Last Exhibited</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    <% } %>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="behaviorComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4>Communication</h4>
+                    <div class="row">
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Primary Language:</label>
+                          <input type="text" class="form-control" id="primaryLanguage">
+                        </div>
+                      </div>
+                    </div>
+                    <p>Mark ways the individual commonly communicates.</p>
+                    <div class="row" id="normal-communication-row">
+                      <% for(const [i, item] of data.healthStatus.communication.entries()) { %>
+                        <div class="col-md-4 checkbox-radios inline-options">
+                          <p><%= item %></p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="communication<%=i%>" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="communication<%=i%>" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Augmented communication device type if present:</label>
+                          <input type="text" class="form-control" id="communicationDeviceType">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Other behaviors (Describe):</label>
+                          <input type="text" class="form-control" id="otherBehaviors">
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <p>Mark ways that pain is communicated.</p>
+                    <div class="row" id="pain-communication-row">
+                      <% for(const [i, item] of data.healthStatus.communication.entries()) { %>
+                        <div class="col-md-4 checkbox-radios inline-options">
+                          <p><%= item %></p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="communication-pain<%=i%>" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="communication-pain<%=i%>" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Augmented communication device type if present:</label>
+                          <input type="text" class="form-control" id="communicationDeviceTypePain">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Other behaviors (Describe):</label>
+                          <input type="text" class="form-control" id="otherBehaviorsPain">
+                        </div>
+                      </div>
+                      <div class="col-md-4 checkbox-radios inline-options">
+                        <p>Able to use pain scale:</p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="pain-scale" id="painScaleUse" value="yes"> Yes
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="pain-scale" value="no" checked> No
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-5 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">If able to use pain scale, list type/name of pain scale:</label>
+                          <input type="text" class="form-control" id="painScaleType">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="communicationComments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row signature-row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">RN </label>
+                          <input type="text" class="form-control" id="health-rn">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Individual </label>
+                          <input type="text" class="form-control" id="health-individual">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="health-date">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Additional health status info section begin -->
+                <div id="assessment-section">
+                  <h3 style="text-decoration:underline; display:inline-block">V. Implementation Assessment</h3>
+                  <div id="assessment-subsection">
+                    <br>
+                    <h4>Health care and Decision Making Capacity</h4>
+                    <p>The preceding review of functional capabilities, physical and cognitive status, and limitations indicate this individual's highest level of ability to make health care decisions.</p>
+                    <div class="row" id="assessment-decision-row">
+                      <% for(decision of data.assessment.decisions) { %>
+                        <div class="col-md-12">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox"><%= decision %></label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <br>
+                    <h4>Support Systems: Discuss the adequacy, reliability, availability, ability to communicate effectively.</h4>
+                    <% for(const [i, system] of data.assessment.supportSystems.entries()) { %>
+                      <h6 class="support-systems-head"><%= system %></h6>
+                      <div class="row support-systems-row">
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>Adequate</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-adequate" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-adequate" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>Reliable</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-reliable" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-reliable" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>Available</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-availale" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-availale" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>Effective Communicator</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-communicator" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-communicator" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                    <% } %>
+                    <br>
+                    <h4>Stability and Predictability and Need to Reassess</h4>
+                    <% for(const [i,row] of [1,1,1].entries()) { %>
+                      <div class="row need-to-reassess-row">
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Health Topic</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>Is a long-term need non-fluctuating consistent?</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-consistent" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-consistent" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>Status change possible, or likely to need regular nursing care</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-care" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-care" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Frequency of RN reassessment</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    <% } %>
+                    <br>
+                    <h4>Knowledge: Describe key health understandings/demonstrations</h4>
+                    <% for(const [i,row] of [1,1,1,1,1,1].entries()) { %>
+                      <div class="row knowledge-demonstrations-row">
+                        <div class="col-md-2 col-sm-12">
+                          <div class="form-group controls">
+                            <label class="bmd-label-floating">Health Topic</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                          <% if(i===0 || i===2 || i===4){ %>
+                            <p style="margin-top:1.5rem">Knowledgeable</p>
+                          <% } else { %>
+                            <p style="margin-top:1.5rem">Demonstrates Technique</p>
+                          <% } %>
+                        </div>
+                        <div class="col-md-2 checkbox-radios inline-options">
+                          <p>Individual</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-individual" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-individual" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-individual" value="n/a" checked> N/A
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>CRA</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-cra" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-cra" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-cra" value="n/a" checked> N/A
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-md-3 checkbox-radios inline-options">
+                          <p>HH/CC</p>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-hhcc" value="yes"> Yes
+                              <span class="circle"> <span class="check"></span></span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-hhcc" value="no" checked> No
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="radio" name="<%=i%>-hhcc" value="n/a" checked> N/A
+                              <span class="circle"><span class="check"></span></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    <% } %>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Comments</label>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="5" id="demonstrationsComments"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h3>Participants in Comprehensive Assessment (Must complete section A, B or C; and RN section)</h3>
+                    <h4>Option A: In this situation, the individual does not have a guardian/LAR and is able to make decisions regarding health care.</h4>
+                    <h6>To be completed by the Individual:</h6>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">
+                            I have participated in decisions about the overall management of my health care [225.1(2)], can make all of my own decisions, am able to direct own health care, and
+                          </label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="_section-a">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-12 checkbox-radios inline-options">
+                        <div class="form-check">
+                          <label class="form-check-label" id="_section-a-individual">
+                            <input class="form-check-input" type="radio" name="section-a-individual">
+                            <em>will not be directing health maintenance activities (HMAs) [225.8(2)(D)(i)],</em>
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <p><strong>OR</strong></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="section-a-individual">
+                            <em id="__section-a-individual">Agree to train unlicensed personnel in the performance of HMAs.</em>
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row signature-row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Printed Name</label>
+                          <input type="text" class="form-control" id="printedNameA">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Signature - Individual</label>
+                          <input type="text" class="form-control" id="sign-individual-a">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="date-a">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4>Option B: In this situation, the individual cannot make decisions regarding health care or has asked for assistance.</h4>
+                    <h6>To be completed by the CRA:</h6>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">
+                            I have participated in decisions about the overall management of health care. [225.1(2)]
+                          </label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="_section-b">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-12 checkbox-radios inline-options">
+                        <div class="form-check">
+                          <label class="form-check-label" id="_section-b-individual">
+                            <input class="form-check-input" type="radio" name="_section-b-individual">
+                            <em>I will be participating in decisions only, not directing care. No HMAs will be performed by unlicensed personnel.</em>
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                        </div>
+                        <p><strong>OR</strong></p>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="_section-b-individual">
+                            <em id="__section-b-individual">I agree to train unlicensed personnel in the proper performance of tasks identified as HMAs, be present when the task is performed
+                            or, if not present, will have observed the unlicensed person perform the task and will be immediately accessible in person or by 
+                            phone to the unlicensed personnel when the task is performed. [225.8(2)(D)(ii)(I-II)]</em>
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row signature-row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Printed Name</label>
+                          <input type="text" class="form-control" id="printedNameB">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Signature - CRA</label>
+                          <input type="text" class="form-control" id="sign-individual-b">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="date-b">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4>Option C: In this situation, the individual cannot make decisions regarding health care and does not have a single identified adult
+                      who is willing and able to participate in decisions about the overall management of the individual's health care. [225.1(a)(2)]
+                    </h4>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">
+                            Provider Advocate Committee (PAC) will act as CRA (form attached).
+                          </label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="_section-c">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Registered Nurse (RN)</h5>
+                    <p>
+                      I have developed this plan and retain accountability for delegated tasks. Each unlicensed personnel's competency will be verified before
+                      allowing delegated tasks to be performed without direct nursing supervision. An RN will be immediately accessible by phone to the unlicensed
+                      personnel when the task is performed.
+                    </p>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Printed Name</label>
+                          <input type="text" class="form-control" id="printedNameC">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Signature - RN</label>
+                          <input type="text" class="form-control" id="sign-individual-c">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="date-c">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h4>Safe Administration of Medications</h4>
+                    <p>A comprehensive review of functional capabilities, physical and cognitive status, limitations and natural supports rate this individual's
+                      ability to take his/her own medications in a safe and appropriate manner according to the five Rights of Medication Administration 
+                      (correct person, medication [what, why], dose, time, route).
+                    </p>
+                    <h6>RN Delegation Worksheet: </h6>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">Attached</label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="delegation-attached">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">N/A</label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="delegation-n/a">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" id="assessment-worksheet-row">
+                      <% for(worksheet of data.assessment.worksheets) { %>
+                        <div class="col-md-10">
+                          <div class="form-check form-check-inline">
+                            <label class="col-form-label label-checkbox">
+                              <strong><%= worksheet.title %></strong>
+                              <span><%= worksheet.content %></span>
+                            </label>
+                            <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                              <input class="form-check-input" type="checkbox">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-check form-check-inline">
+                          <label class="col-form-label label-checkbox">
+                            <strong>Must be administered by a licensed nurse</strong>
+                            <span>Medications that may not be delegated are:</span>
+                          </label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="unDelegatedRoutes">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Enter Here:</label>
+                          <input type="text" class="form-control" id="unDelegatedMedications">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <h4>Nurse Supervision</h4>
+                  <p>For each unlicensed personnel, determine in consultation with the individual CRA, LAR or PAC the level of supervision and frequency of supervisory visits, taking into
+                  account: the stability of the individual's status; the training, experience and capability of the unlicensed personnel to whom the nursing task is delegated; the nature of 
+                  the nursing task being delegated; the proximity and availability of the RN to the unlicensed person when the task will be performed and the level of participation of the 
+                  individual or CRA [225.9(a)(3)(A-E)]
+                  </p>
+                  <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Name of Unlicensed Personnel:</label>
+                        <input type="text" class="form-control" id="unlicensedPersonnel">
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <p>List all who were consulted in determining the level of nurse supervision for the above named unlicensed personnel:</p>
+                  <% for(con of data.assessment.consultants) { %>
+                    <div class="col-md-10 consultants-cols">
+                      <div class="form-check form-check-inline">
+                        <label class="col-form-label label-checkbox"><%= con %></label>
+                        <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="col-md-10">
+                    <div class="form-check form-check-inline">
+                      <label class="col-form-label label-checkbox">Other</label>
+                      <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                        <input class="form-check-input" type="checkbox" id="consultants-other">
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Enter Other:</label>
+                      <input type="text" class="form-control" id="consultants-other-value">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">RN follow-up to monitor competency of the above named unlicensed personnel of the following delegated task(s):</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <h5>Frequency of required RN monitoring:</h5>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Once additionally within the first</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fORNM-onceWithin">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group controls">
+                        <input type="text" class="form-control" id="fORNM-onceWithinValue">
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <p style="margin-top: 1rem">, then</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Monthly</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fORNM-monthly">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Quarterly</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fORNM-quarterly">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Once additionally within the year</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fORNM-yearAdd">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Annually</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fORNM-annually">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Other</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fORNM-other">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group controls">
+                      <label class="bmd-label-floating">Enter Other:</label>
+                        <input type="text" class="form-control" id="fORNM-otherValue">
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <h5>Frequency of additional RN or LVN monitoring:</h5>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Not applicable; no additional monitoring is needed</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fOARNM-notApplicable">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Once additionally within the first</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fOARNM-onceWithin">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group controls">
+                        <input type="text" class="form-control" id="fOARNM-onceWithinValue">
+                      </div>
+                    </div>
+                    <div class="col-md-1">
+                      <p style="margin-top: 1rem">, then</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Monthly</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fOARNM-monthly">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Quarterly</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fOARNM-quarterly">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="form-check form-check-inline" style="margin-left: 1rem">
+                        <label class="col-form-label label-checkbox">Once additionally within the year</label>
+                        <label class="form-check-label" style="position:absolute; left:-1.5rem; bottom:1.6rem">
+                          <input class="form-check-input" type="checkbox" id="fOARNM-withinYear">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Notes</label>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="5" id="additionalRNMonitoringNotes"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row signature-row">
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">RN </label>
+                        <input type="text" class="form-control" id="assessment-rn">
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Individual </label>
+                        <input type="text" class="form-control" id="assessment-individual">
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group controls">
+                        <label class="label-control">Date </label>
+                        <input type="text" class="form-control datepicker" id="assessment-date">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- summary section begin -->
+                <div id="summary-section">
+                  <h3 style="text-decoration:underline; display:inline-block">VI. Summary</h3>
+                  <div id="summary-subsection">
+                    <div class="row" id="clinicalImpressionsRow">
+                      <% for(implementation of data.summary.impressions) { %>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label><%= implementation %></label>
+                            <div class="form-group">
+                              <textarea class="form-control" rows="5"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      <% } %>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h5>Nursing Service Plan</h5>
+                        <div class="form-group"  id="concernsAndDiagnoses">
+                          <label>Concerns/Nursing Diagnoses</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h5>Intervention/Stratergies</h5>
+                    <% for(row of [1,1,1,]){ %>
+                        <div class="row strategyObjectivesRow">
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Implementation Stategy Objectives</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="label-control">Start Date</label>
+                              <input type="text" class="form-control datepicker">
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="label-control">Target Completion</label>
+                              <input type="text" class="form-control datepicker">
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating">Calculation of Units(If applicable)</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <div class="form-group controls">
+                              <label class="bmd-label-floating" style="font-size:.7rem">Total Units (per strategy)</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                    <% } %>
+                    <br>
+                    <h6>Total Nursing Units Needed</h6>
+                    <div class="row">
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">RN</label>
+                          <input type="text" class="form-control" id="totalNurses-rn">
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">RN Specialized</label>
+                          <input type="text" class="form-control" id="totalNurses-rnSpec">
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">LVN</label>
+                          <input type="text" class="form-control" id="totalNurses-lvn">
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">LVN Specialized</label>
+                          <input type="text" class="form-control" id="totalNurses-lvnSpec">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Desired Outcomes/Goals</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="totalDesiredOutcomes"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Printed Name and Credentials</label>
+                          <input type="text" class="form-control" id="intervention-printedName">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Signature</label>
+                          <input type="text" class="form-control" id="intervention-sign">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date</label>
+                          <input type="text" class="form-control datepicker" id="intervention-date">
+                        </div>
+                      </div>
+                    </div>
+                    <h5>Review of Comprehensive Nursing Assessment by RN:</h5>
+                    <p><strong>Note:</strong> The nursing assessment must be reviewed at least annually to verify information remains current and decisions remain appropriate.</p>
+                    <div class="row">
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date of Review</label>
+                          <input type="text" class="form-control datepicker" id="finalReviewDate">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 checkbox-radios inline-options">
+                        <p>Purpose (must check one):</p>
+                        <div class="form-check" id="reviewPurpose">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="review-purpose">
+                            review of a temporary or permanent change in the individual's physical health, support system, mental status, social functioning, ability to perform activities of daily living or health maintenance activities, or medication or treatment regimen;
+                            <span class="circle"> <span class="check"></span></span>
+                          </label>
+                          <br>
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="review-purpose">
+                            review assessments, documentation and decisions made by previous RN; or
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                          <br>
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="review-purpose">
+                            annual review of assessments, documentation and decisions to verify information remains current and decisions remain appropriate.
+                            <span class="circle"><span class="check"></span></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Description of Review:</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="finalReviewDesc"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Action Taken by RN:</label>
+                          <div class="form-group">
+                            <textarea class="form-control" rows="5" id="actionTakenByRN"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h6>Change(s) in Nursing Service Plan:</h6>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-check form-check-inline" style="margin-left: 1rem">
+                          <label class="col-form-label label-checkbox">No change required</label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="noChangeRequired">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="form-check form-check-inline" style="margin-left: 1rem">
+                          <label class="col-form-label label-checkbox">Nursing service plan revisions</label>
+                          <label class="form-check-label" style="position:absolute; right:-2rem; bottom:1.6rem">
+                            <input class="form-check-input" type="checkbox" id="nursingServicePlanRevisions">
+                            <span class="form-check-sign">
+                              <span class="check"></span>
+                            </span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Enter plan revisions here</label>
+                          <input type="text" class="form-control" id="customPlanRevision">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Signature - RN </label>
+                          <input type="text" class="form-control" id="finalRNSignature">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="finalRNDate">
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row signature-row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">RN </label>
+                          <input type="text" class="form-control" id="summary-rn">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="bmd-label-floating">Individual </label>
+                          <input type="text" class="form-control" id="summary-individual">
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group controls">
+                          <label class="label-control">Date </label>
+                          <input type="text" class="form-control datepicker" id="summary-date">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

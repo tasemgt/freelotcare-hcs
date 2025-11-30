@@ -1,0 +1,91 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/nurses/exclusion-of-hhcc?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="exclusion-of-hhcc-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Individual Name *</label>
+                      <input type="text" class="form-control" id="individualName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Name of HH/CC Provider *</label>
+                      <input type="text" class="form-control" id="hhccProviderName" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <p>I assert that I have assessed and determined that all four of the following criteria have been met:</p>
+                <ul>
+                  <li>
+                    the HH/CC provider meets the definition of Client Responsible Adult (CRA) in Texas Administrative Code (TAC), Title 22, Part 11, Chapter 225, §225.4;
+                  </li>
+                  <li>
+                    the individual and HH/CC maintain a stable and beneficial relationship;
+                  </li>
+                  <li>
+                    the HH/CC provider is willing and able to assume the responsibility and accountability for the individual’s health care; and
+                  </li>
+                  <li>
+                    the HH/CC provider has adequate and appropriate supports available.
+                  </li>
+                </ul>
+                <hr>
+                <br>
+                <p>
+                  Based on the comprehensive assessment I completed, I have decided to exclude the HH/CC provider from the BON definition of unlicensed person. I have developed a nursing service plan that requires the HH/CC provider to report any changes in conditions or medical treatment to me.
+                </p>
+                <div class="row">
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Signature of Registered Nurse *</label>
+                      <input type="text" class="form-control" id="nurseSignature" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>
+                <p>Instructions: This form must be updated annually by the RN.</p>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

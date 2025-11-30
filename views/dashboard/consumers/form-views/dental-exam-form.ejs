@@ -1,0 +1,78 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Dental Examination Form</h4>
+              <p class="card-category">Please fill in all required fields</p>
+            </div>
+            <div class="card-body">
+              <form id="dental_form">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Local Case Number *</label>
+                      <input type="text" class="form-control" id="lcNum" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group controls">
+                      <label class="label-control">Date of Appointment *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Examiner Name *</label>
+                      <input type="text" class="form-control" id="examiner" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Diagnosis And Treatment</label>
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Notes on diagnosis</label>
+                        <textarea class="form-control" rows="5" id="diagnosis"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Medication(s) Prescribed/Recommendation</label>
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Prescriptions and medications</label>
+                        <textarea class="form-control" rows="5" id="prescription"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="consumer-forms-btn btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

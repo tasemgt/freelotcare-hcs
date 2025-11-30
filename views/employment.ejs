@@ -1,0 +1,219 @@
+<%- include('./intro_header'); -%>
+
+<div class="page-header header-filter">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-employment">
+          <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Employment Form</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#profile" data-toggle="tab">
+                      <i class="material-icons">info</i> Basic Info
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-references" href="#references" data-toggle="tab">
+                      <i class="material-icons">description</i> References and Documents
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body" style="padding: 2rem;">
+            <div class="tab-content">
+                <div class="tab-pane active" id="profile">
+                  <form class="employment_form">
+                    <div class="row">
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">First Name *</label>
+                          <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name *</label>
+                          <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Social Security Number *</label>
+                          <input type="text" class="form-control" id="ssn" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group">
+                          <select id="country-select" class="custom-select" name="country">
+                            <option value="0">&nbsp;&nbsp;Select Country *</option>
+                            <option value="+1">U.S +1</option>
+                            <option value="+1">Canada +1</option>
+                            <option value="+44">U.K +44</option>
+                            <option value="+234">NIG. +234</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Phone number *</label>
+                          <input type="number" class="form-control" id="phone" required>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">High School *</label>
+                          <input type="text" class="form-control" id="highSchool" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 col-sm-12">
+                        <div class="form-group">
+                          <select id="agency-select" class="custom-select" name="agency">
+                            <option value="0">&nbsp;Select Agency *</option>
+                            <% for(agency of agencies) { %>
+                              <option value="<%= agency._id %>"><%= agency.name %></option>
+                            <% } %>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email Address *</label>
+                          <input type="text" class="form-control" id="email">
+                        </div>
+                      </div>
+                      <div class="col-md-7 col-sm-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Home Address *</label>
+                          <input type="text" class="form-control" id="address" required>
+                        </div>
+                      </div>
+                    </div>
+                    <button id="btn-next" type="submit" class="btn btn-primary btn-wd btn-md pull-right"> Next</button>
+                  </form>
+                </div>
+                <div class="tab-pane" id="references">
+                  <form id="employment_form_submit">
+                    <div class="row">
+                      <div class="col-md-8 col-sm-12">
+                        <div class="row">
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Name *</label>
+                              <input type="text" class="form-control" id="ref1_name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <div class="form-group">
+                              <select id="country-select-1" class="custom-select" name="country1">
+                                <option value="0">&nbsp;&nbsp;Country *</option>
+                                <option value="+1">U.S +1</option>
+                                <option value="+1">Canada +1</option>
+                                <option value="+44">U.K +44</option>
+                                <option value="+234">NIG. +234</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Phone Number *</label>
+                              <input type="text" class="form-control" id="ref1_phone" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Name *</label>
+                              <input type="text" class="form-control" id="ref2_name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <div class="form-group">
+                              <select id="country-select-2" class="custom-select" name="country2">
+                                <option value="0">&nbsp;&nbsp;Country *</option>
+                                <option value="+1">U.S +1</option>
+                                <option value="+1">Canada +1</option>
+                                <option value="+44">U.K +44</option>
+                                <option value="+234">Nig. +234</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Phone Number *</label>
+                              <input type="text" class="form-control" id="ref2_phone" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Name *</label>
+                              <input type="text" class="form-control" id="ref3_name" required>
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-12">
+                            <div class="form-group">
+                              <select id="country-select-3" class="custom-select" name="country3">
+                                <option value="0">&nbsp;&nbsp;Country *</option>
+                                <option value="+1">U.S +1</option>
+                                <option value="+1">Canada +1</option>
+                                <option value="+44">U.K +44</option>
+                                <option value="+234">Nig. +234</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Phone Number *</label>
+                              <input type="text" class="form-control" id="ref3_phone" required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 col-sm-12">
+                        <h5>Document Uploads</h5>
+                        <hr>
+                        <input type="file" accept='application/*' class="form__upload" id='id_card' name='id_card'>
+                        <label for="id_card" id="lab_id_card">Upload a State ID</label>
+                        <div class="form-group" style="position: absolute;top: 2rem;right: 3rem;">
+                          <input type="text" placeholder="ID Expiry Date *" class="form-control datepicker" id="id_card_expiry" required>
+                        </div>
+                        <br>
+                        <input type="file" accept='application/*' class="form__upload" id='ss_card' name='ss_card'>
+                        <label for="ss_card" id="lab_ss_card">Upload Social Security Card</label>
+                        <br>
+                        <input type="file" accept='application/*' class="form__upload" id='high_school_cert' name='high_school_cert'>
+                        <label for="high_school_cert" id="lab_high_school_cert">Upload High School Certificate</label>
+                        <br>
+                      </div>
+                    </div>
+                    <input type="hidden" name="payload1" id="payload1">
+                    <button class="btn btn-primary btn-wd btn-md pull-right" id="btn-submit"> Submit Application</button>
+                  </form>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./intro_footer'); -%>

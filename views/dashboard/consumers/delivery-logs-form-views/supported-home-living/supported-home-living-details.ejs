@@ -1,0 +1,183 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-text card-header-primary">
+              <div class="card-text">
+                <h4 class="card-title ">Supported Home Living / CS / CFC-PAS / Habilitation Form</h4>
+                <p class="card-category">CONSUMER Local Case Number: <%= form.consumer.lcNumber %></p>
+              </div>
+            </div>
+            <br/>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                <div class="row">
+                  <div class="card-header col-md-4">
+                    <h4 class="card-title" style="font-weight:bold">Consumer Name</h4>
+                    <p class="card-category">
+                      <%= form.consumer.firstName +' '+ form.consumer.lastName %>
+                    </p>
+                  </div>
+                  <div class="card-header col-md-4">
+                    <h4 class="card-title" style="font-weight:bold">Consumer Agency</h4>
+                    <p class="card-category">
+                      <%= form.consumer.agency.name %>
+                    </p>
+                  </div>
+                  <div class="card-header col-md-4">
+                    <h4 class="card-title" style="font-weight:bold">Staff Signatory</h4>
+                    <p class="card-category">
+                      <%= form.staff.firstName +' '+ form.staff.lastName %>
+                    </p>
+                  </div>
+                </div>
+                <br>
+                </div>
+                <div class="col-md-12">
+                  <h4 class="card-title">Records entered so far</h4>
+                    <div class="card-body" style="padding:0px">
+                      <div class="table-responsive">
+                        <table class="table table-hover data-table">
+                          <thead class="">
+                            <th class="text-bold">
+                              S/N
+                            </th>
+                            <th class="text-bold">
+                              Date of Service
+                            </th>
+                            <th class="text-bold">
+                              Begin Time
+                            </th>
+                            <th class="text-bold">
+                              End Time
+                            </th>
+                            <th class="text-bold">
+                              Total Time
+                            </th>
+                            <th class="text-bold">
+                              Location
+                            </th>
+                            <th class="text-bold">
+                              No. of Individuals
+                            </th>
+                            <th class="text-bold">
+                              No. of Staff
+                            </th>
+                            <th class="text-bold">
+                              Code for all services provided
+                            </th>
+                            <th class="text-bold">
+                              Billable Units
+                            </th>
+                            <th class="text-bold">
+                              Attendant Staff
+                            </th>
+                          </thead>
+                          <tbody>
+                            <% for(const [i, record] of form.records.entries()){ %>
+                              <tr>
+                                <td>
+                                  <%= i+1 %>
+                                </td>
+                                <td class="formatted-date">
+                                  <%= record.dateOfService %>
+                                </td>
+                                <td>
+                                  <%= record.beginTime %>
+                                </td>
+                                <td>
+                                  <%= record.endTime %>
+                                </td>
+                                <td>
+                                  <%= record.total_time %> mins
+                                </td> 
+                                <td>
+                                  <%= record.location %>
+                                </td>
+                                <td>
+                                  <%= record.numberOfIndividuals %>
+                                </td>
+                                <td>
+                                  <%= record.numberOfStaff %>
+                                </td> 
+                                 <td>
+                                  <%= record.servicesCode %>
+                                </td>
+                                 <td>
+                                  <%= record.billableUnits %>
+                                </td>
+                                <td>
+                                  <%= record.staffSignature %>
+                                </td>
+                              </tr>
+                            <% } %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </br>
+                  <h4 class="card-title">Comments on incidents and special occurrences</h4>
+                    <div class="card-body" style="padding:0px">
+                      <div class="table-responsive">
+                        <table class="table table-hover data-table">
+                          <thead class="">
+                            <th class="text-bold">
+                              S/N
+                            </th>
+                            <th class="text-bold">
+                              Date
+                            </th>
+                            <th class="text-bold">
+                              Comments
+                            </th>
+                          </thead>
+                          <tbody>
+                            <% for(const [i, comment] of form.comments.entries()){ %>
+                              <tr>
+                                <td>
+                                  <%= i+1 %>
+                                </td>
+                                <td class="formatted-date">
+                                  <%= comment.commentDate %>
+                                </td>
+                                <td>
+                                  <%= comment.commentText %>
+                                </td>
+                              </tr>
+                            <% } %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <br/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

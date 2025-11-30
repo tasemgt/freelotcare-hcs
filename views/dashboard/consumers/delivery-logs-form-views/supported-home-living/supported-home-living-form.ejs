@@ -1,0 +1,66 @@
+<%- include('../../../../partials/header'); -%>
+
+<%- include('../../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+              <a href="/dashboard/consumers/supported-home-living?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="supported-home-form">
+                <br>
+                <div class="row">
+                  <% if(!form){ %>
+                    <div class="col-md-3">
+                      <div class="form-group controls">
+                        <label class="bmd-label-floating">Local Case Number *</label>
+                        <input type="text" class="form-control" id="lcNumber" required>
+                      </div>
+                    </div>
+                  <% } else { %>
+                    <div class="col-md-3">
+                      <h3>Update Consumer Form</h3>
+                      <h5>Local Care Number: <%= form.lcNumber %></h5>
+                      <h5>Consumer Name: <%= form.consumer.firstName +" "+ form.consumer.lastName %></h5>
+                    </div>
+                  <% } %>
+                </div>
+                <br>
+                <hr id="divider">
+                <button type="button" id="add-comment-btn" class="btn btn-primary pull-right">Add Comment</button>
+                <button type="button" id="add-record-btn" style="margin-right: 1rem" class="btn btn-primary pull-right">Add Record</button>
+                <br><br>
+                <hr>
+                <% if(form) {%>
+                  <input type="hidden" id="hidden-form-id" value="<%= form._id %>">
+                <% } %>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../../partials/footer'); -%>

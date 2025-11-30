@@ -1,0 +1,89 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Exclusion of Host Home/Companion Care (HH/CC) Provider from the Board of Nursing (BON) Definition of Unlicensed Person Forms</h4>
+              <p class="card-category">Lists all forms</p>
+              <a href="/dashboard/nurses/exclusion-of-hhcc?new=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Add New Form</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table data-table">
+                  <thead class="text-primary">
+                    <th class="text-bold">
+                      Individual Name
+                    </th>
+                    <th class="text-bold">
+                      HH/CC Provider Name
+                    </th>
+                    <th class="text-bold">
+                      Registered Nurse Signature
+                    </th>
+                    <th class="text-bold">
+                      Date
+                    </th>
+                    <th class="text-bold">
+                      Printed Name and Credentials
+                    </th>
+                    <th class="text-bold text-right">
+                      Actions
+                    </th>
+                  </thead>
+                  <tbody>
+                    <% for(form of forms){ %>
+                    <tr>
+                      <td>
+                        <%= form.individualName %>
+                      </td>
+                      <td>
+                        <%= form.hhccProviderName %>
+                      </td>
+                      <td>
+                        <%= form.nurseSignature %>
+                      </td>
+                      <td class="formatted-date">
+                        <%= form.date %>
+                      </td>
+                      <td>
+                        <%= form.nameAndCred.firstName +' '+form.nameAndCred.lastName %>
+                      </td>
+                      <td class="text-right">
+                        <a href="#" rel="tooltip" data-original-title="View Form"  class="btn btn-link btn-info btn-just-icon like show-details"><i class="material-icons">description</i></a>
+                        <a href="#" rel="tooltip" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                      </td>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

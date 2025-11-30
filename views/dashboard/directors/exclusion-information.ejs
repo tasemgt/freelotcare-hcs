@@ -1,0 +1,83 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Describes all services to be performed by a Program Director</p>
+              <a href="/dashboard/directors/exclusion-schedule?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">Exclusion Schedule Forms</a>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-10">
+                  <div class="card-header">
+                    <h3>
+                      Exclusion:
+                    </h3>
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="card-header">
+                    <p class="card-title">
+                      Providers are required on a monthly basis to review the OIG Data base of both State (OIG State) and Federal (OIG Federal) to ascertain if any of their employees or Vendor contracted to provide services to the consumers have been excluded from providing Medicaid and Medicare Services.
+                    </p><br>
+                    <p class="card-title">
+                      All the names of the employees and Vendor most be checked against names on the data base to ensure that there is no match. The checking is done first before the individual or Vendor is employed or contracted with by the Provider. Thereafter, the verification is done a monthly basis.
+                    </p><br>
+                    <p class="card-title">
+                      If there is a  name  match, then verify further with the Social Security Number  or  Employer Identification Number of the individual or company.
+                    </p><br>
+                    <p class="card-title">
+                      If the name and social security match with the name on the Exclusion data base, the individual is not eligible for employment.
+                    </p><br>
+                    <p class="card-title">
+                      If the individual is already employed, then his or her employment most be terminated immediately.
+                    </p><br>
+                    <p class="card-title">
+                      See attached schedule that would assist your Agency to document the monthly verification.
+                    </p><br>
+                    <p class="card-title">
+                      Update the schedule for the following events:
+                    </p>
+                    <ol class="card-category">
+                      <li>Employment of new individuals or contractors</li>
+                      <li>Resignation of employees or contractors</li>
+                      <li>Termination of employment or contractor services.</li>
+                    </ol>
+                    <br><br>
+                    <p class="card-title">
+                      The links for the verifications for both State and Federal exclusion list are as follows:
+                    </p>
+                    <ol class="card-category">
+                      <li>State Exclusion Link: &nbsp;<a href="https://oig.hhsc.state.tx.us">https://oig.hhsc.state.tx.us</a></li>
+                      <li>Federal Exclusion Link: &nbsp;<a href="https://exclusions.oig.hhs.gov/">https://exclusions.oig.hhs.gov/</a></li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

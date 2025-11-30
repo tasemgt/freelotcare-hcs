@@ -1,0 +1,178 @@
+<div class="sidebar" data-color="primary" data-background-color="black" data-image="/img/sidebar-1.jpg">
+  <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+  <div class="logo"><a href="/dashboard/dashboard" class="side-bar-logo">
+      <img src="/img/hhs-logo-inverse.png" alt="HHS Logo">
+    </a></div>
+  <div class="sidebar-wrapper">
+    <div class="user">
+      <div class="photo">
+        <img src="/img/default.jpg" alt="">
+      </div>
+      <div class="user-info">
+        <a href="#" class="username collapsed">
+          <span> <%= user.firstName +" "+ user.lastName[0] %>. | <span style="font-size:.7rem;"><%= user.role %></span> </span>
+        </a>
+      </div>
+    </div>
+    <ul class="nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <% if(user.role === 'admin') {%>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#nurses" aria-expanded="false">
+            <i class="material-icons">people</i>
+            <p>Manage all Users <b class="caret"></b></p>
+          </a>
+          <div class="collapse" id="nurses">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/dashboard/users" class="nav-link">
+                  <span class="sidebar-normal">All Users</span>
+                </a>
+              </li>
+              <% if(user.role === 'director') { %>
+                <li class="nav-item">
+                  <a href="/dashboard/users/add" class="nav-link">
+                    <span class="sidebar-normal">Add a User</span>
+                  </a>
+                </li>
+              <% } %>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#agency" aria-expanded="false">
+            <i class="material-icons">foundation</i>
+            <p>Agency Applications <b class="caret"></b></p>
+          </a>
+          <div class="collapse" id="agency">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/dashboard/agency-applications" class="nav-link">
+                  <span class="sidebar-normal">All Applications</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/dashboard/users/add-program-director" class="nav-link">
+                  <span class="sidebar-normal">Add Program Director</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      <% } %>
+      <% if(user.role === 'director') { %>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#consumer" aria-expanded="false">
+            <i class="material-icons">description</i>
+            <p>Manage Consumers<b class="caret"></b></p>
+          </a>
+          <div class="collapse" id="consumer">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/dashboard/consumers" class="nav-link">
+                  <span class="sidebar-normal">All Consumers</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/dashboard/consumers/add" class="nav-link">
+                  <span class="sidebar-normal">Register a Consumer</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#nurse" aria-expanded="false">
+            <i class="material-icons">description</i>
+            <p>Manage Staff<b class="caret"></b></p>
+          </a>
+          <div class="collapse" id="nurse">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/dashboard/staff" class="nav-link">
+                  <span class="sidebar-normal">My Staff</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/dashboard/users/add" class="nav-link">
+                  <span class="sidebar-normal">Add a Staff</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#employment" aria-expanded="false">
+            <i class="material-icons">work</i>
+            <p>Job Applications <b class="caret"></b></p>
+          </a>
+          <div class="collapse" id="employment">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/dashboard/applications" class="nav-link">
+                  <span class="sidebar-normal">All Applications</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      <% } %>
+      <li class="nav-item ">
+        <a class="nav-link collapsed" data-toggle="collapse" href="#appointments" aria-expanded="false">
+          <i class="material-icons">access_time</i>
+          <p>Appointments <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="appointments">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="/dashboard/appointments" class="nav-link">
+                <span class="sidebar-normal">All Appointments</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/dashboard/appointments/add" class="nav-link">
+                <span class="sidebar-normal">Book an appointment</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./notifications.html">
+          <i class="material-icons">notifications</i>
+          <p>Notifications</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/dashboard/profile">
+          <i class="material-icons">person</i>
+          <p>Profile</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link collapsed" data-toggle="collapse" href="#settings" aria-expanded="false">
+          <i class="material-icons">settings</i>
+          <p>Settings <b class="caret"></b></p>
+        </a>
+        <div class="collapse" id="settings">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="/dashboard/settings/change-password" class="nav-link">
+                <span class="sidebar-normal">Change Password</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

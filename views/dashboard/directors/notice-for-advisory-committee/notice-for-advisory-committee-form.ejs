@@ -1,0 +1,102 @@
+<%- include('../../../partials/header'); -%>
+
+<%- include('../../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title"><%= title %></h4>
+              <p class="card-category">Please fill in all required fields</p>
+               <a href="/dashboard/directors/notice-advisory?all=true" type="button" id="add-btn" class="btn btn-light pull-right btn-sm">View all Forms</a>
+            </div>
+            <div class="card-body">
+              <form id="notice-for-advisory-committee-form">
+                <br>
+                <div class="row">
+                  <div class="col-md-10 col-sm-12">
+                    <h3>From: <strong><%= director %></strong> - Program Director</h3>
+                  </div>
+                  <div class="col-md-10 col-sm-12">
+                    <h3>To: <strong></strong> - Advisory Committee Members</h3>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-5">
+                    <h4 style="text-decoration: underline">Re: Notice of Meeting</h4><br>
+                    <h5>Agenda:</h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-10">
+                    <ol>
+                      <li>Evaluating and addressing the satisfaction of individuals or LARs with the program provider's services; </li>
+                      <li>Soliciting, addressing, and reviewing complaints from individuals or LARs about the operations of the program provider; </li>
+                      <li>reviewing all allegations of abuse, neglect, and exploitation alleged to have been committed by a service provider against individuals and the program provider's practices for preventing the occurrence or reoccurrence of abuse, neglect, and exploitation;</li>
+                      <li>reviewing the reasons for terminating HCS or CFC Program services to individuals and identifying any related need for improvement to the program provider's service delivery;</li>
+                      <li>participating in a continuous quality improvement review of the program provider's operations and offering recommendations for improvement of program operations for action by the program provider as necessary; and</li>
+                      <li>reviewing critical incident data to assess trends that will assist in the development of procedures to decrease the frequency of the use of restraint.</li>
+                    </ol>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="label-control">Date *</label>
+                      <input type="text" class="form-control datepicker" id="dateOfMeeting" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                      <label class="label-control">Time *</label>
+                      <input type="text" class="form-control timepicker" id="timeOfMeeting" required>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">Venue *</label>
+                      <input type="text" class="form-control" id="venue" required>
+                    </div>
+                  </div>
+                  <div class="col-md-5 col-sm-12">
+                    <div class="form-group controls">
+                      <label class="bmd-label-floating">CC *</label>
+                      <input type="text" class="form-control" id="copy">
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <button type="submit" id="submit-btn" class="btn btn-primary pull-right">Submit</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div style="margin-bottom: 11rem;"></div>
+
+  <!-- Bottom footer -->
+  <%- include('../../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../../partials/footer'); -%>

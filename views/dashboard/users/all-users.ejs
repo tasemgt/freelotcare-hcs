@@ -1,0 +1,102 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">All Users</h4>
+                  <p class="card-category">Lists all Program Directors and Nurses</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table data-table table-striped dataTable table-hover table-no-bordered">
+                      <thead class="text-primary">
+                        <th class="text-bold">
+                          First Name
+                        </th>
+                        <th class="text-bold">
+                          Last Name
+                        </th>
+                        <th class="text-bold">
+                          Email Address
+                        </th>
+                        <th class="text-bold">
+                          Phone Number
+                        </th>
+                        <th class="text-bold">
+                          Social Security Number
+                        </th>
+                        <th class="text-bold">
+                          Agency Name
+                        </th>
+                        <th class="text-bold">
+                          Role
+                        </th>
+                        <th class="text-bold text-right">
+                          Actions
+                        </th>
+                      </thead>
+                      <tbody>
+                        <% for(user of users){ %>
+                          <tr>
+                            <td>
+                              <%= user.firstName %>
+                            </td>
+                            <td>
+                              <%= user.lastName %>
+                            </td>
+                            <td>
+                              <%= user.email %>
+                            </td>
+                            <td>
+                              <%= user.phone %>
+                            </td>
+                            <td class="text-primary">
+                              <%= user.ssn %>
+                            </td>
+                            <td class="text-primary">
+                              <%= user.agency.name %>
+                            </td>
+                            <td>
+                              <%= user.role %>
+                            </td>
+                            <td class="text-right">
+                              <a href="/dashboard/users/<%= user._id %>" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">person</i></a>
+                              <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
+                              <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                            </td>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+      </div>
+    
+    </div>
+  
+  
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

@@ -1,0 +1,82 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header card-header-text card-header-primary">
+              <div class="card-text">
+                <h3 class="card-title "><%= agency.name %></h3>
+                <p class="card-category">Kindly review application before approving</p>
+              </div>
+            </div>
+            <br/>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Agency Location</h4>
+                    <p class="card-category">
+                      <%= agency.location %>
+                    </p>
+                  </div>
+                  <div class="card-header">
+                    <h4 class="card-title" style="font-weight:bold">Agency Description</h4>
+                    <p class="card-category">
+                      <%= agency.description %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <br/>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-sm-4 checkbox-radios" >
+                      <div class="form-check form-check-inline">
+                        <label class="col-form-label label-checkbox">Approve Application</label>
+                        <label class="form-check-label" for="approvedAgency" style="position:absolute; right:-2rem; bottom:1.6rem">
+                          <% if(agency.approved){ %>
+                            <input class="form-check-input" id="approvedAgency" type="checkbox" checked>
+                          <% } else { %>
+                            <input class="form-check-input" id="approvedAgency" type="checkbox">
+                          <% } %>
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <button type="button" id="save_agency_application_btn" class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

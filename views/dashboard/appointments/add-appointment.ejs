@@ -1,0 +1,86 @@
+<%- include('../../partials/header'); -%>
+
+<%- include('../../partials/sidebar'); -%>
+
+
+<div class="main-panel">
+  <!-- Navbar area -->
+  <%- include('../../partials/navbar'); -%>
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Book for an Appointment</h4>
+              <p class="card-category">Please fill in all required fields</p>
+            </div>
+            <div class="card-body">
+              <form id="book-appointment-form">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Consumer Name *</label>
+                      <input type="text" class="form-control" id="consName" required>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Age *</label>
+                      <input type="text" class="form-control" id="age" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Phone Number *</label>
+                      <input type="number" class="form-control" id="phone" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="label-control">Date of Appointment *</label>
+                      <input type="text" class="form-control datepicker" id="date" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                    <label class="label-control">Time of Appointment *</label>
+                      <input type="text" class="form-control timepicker" id="time" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Email Address *</label>
+                      <input type="email" class="form-control" id="email" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Reason for Appointment *</label>
+                        <textarea class="form-control" rows="5" id="reason" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" id="book-appointment-btn" class="btn btn-primary pull-right">Book Appointment</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom footer -->
+  <%- include('../../partials/bottombar'); -%>
+</div>
+
+<!-- page footer -->
+<%- include('../../partials/footer'); -%>

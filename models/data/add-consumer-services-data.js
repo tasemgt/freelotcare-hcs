@@ -1,0 +1,22 @@
+module.exports = [
+  'Residential Support Services (RSS)',
+  'Supervised Living (SL)',
+  'Host Companion',
+  'Supported Home Living (CFC)',
+  'Respite',
+  'Nursing Services',
+  'Behavior Support',
+  'Physical Therapy',
+  'Occupational Therapy',
+  'Dietary Services',
+  'Speech Therapy',
+  'Adaptive Aids',
+  'Minor Home Modifications',
+  'Dental Services',
+  'Supported Employment',
+  'Cognitive Rehabilitation Therapy',
+  'Day Habilitation',
+  'Employment Assistance',
+  'Audiology',
+  'Transportation for CFC/SHL'
+]
