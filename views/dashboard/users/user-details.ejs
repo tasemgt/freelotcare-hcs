@@ -17,7 +17,7 @@
             <div class="card-header card-header-text card-header-primary">
               <div class="card-text">
                 <h4 class="card-title" style="font-size: 1.5rem"><%= person.role === 'director'? person.title:'' %> <%= person.firstName +' '+ person.lastName %></h4>
-                <p class="card-category" style="font-size: 1.1rem"><%= person.role === 'director'? 'Program Director': person.role %> @ <%= person.role === 'admin'? 'Free Lot Care': person.agency.name %></p>
+                <p class="card-category" style="font-size: 1.1rem"><%= person.role === 'director'? 'Program Director': person.role %> @ <%= person.role === 'admin'? 'Free Lot Care': person.agency? person.agency.name : 'N/A' %></p>
               </div>
             </div>
             <br/>
@@ -71,11 +71,11 @@
               </div>
               <br>
               <% if( person.role !== 'admin' ) { %>
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-12">
                     <a href="javascript:;" class="btn btn-danger btn-round">Deactivate Account</a>
                   </div>
-                </div>
+                </div> -->
               <% } %>
             </div>
           </div>

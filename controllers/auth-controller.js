@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user/user');
 const AppError = require('../utils/app-error');
 const sendEmail = require('../utils/email');
-const emailService = require('../utils/email');
 
 const signToken = id =>{
   return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRES_IN});
@@ -88,14 +87,20 @@ exports.updatePassword = async (req, res, next) =>{
 
     await user.save();
 
-    //Send email
-    const to = user.email;
-    const msg = {
-      subject: `Password Updated!`,
-      text:  `Hello ${user.firstName}! \nYour new updated password is '${req.body.newPassword}'.\nRegards.`
-    }
+    // //Send email
+    // const to = user.email;
+    // const msg = {
+    //   subject: `Password Updated!`,
+    //   text:  `Hello ${user.firstName}! \nYour new updated password is '${req.body.newPassword}'.\nRegards.`
+    // }
+    // emailService.sendEmail(to, msg);
 
-    emailService.sendEmail(to, msg);
+    //Send email
+    sendEmail({
+      email: user.email,
+      subject: 'Password Updated!',
+      message: `Hello ${user.firstName}! \n\nYour new updated password is '${req.body.newPassword}'.\n\nBest Regards,\nFree Lot Care Team`
+    });
 
     //Login user
     createSendToken(user, 200, res);

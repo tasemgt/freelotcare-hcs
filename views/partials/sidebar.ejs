@@ -4,7 +4,7 @@
 
     Tip 2: you can also add an image using data-image tag
 -->
-  <div class="logo"><a href="/dashboard/dashboard" class="side-bar-logo">
+  <div class="logo"><a href="/dashboard" class="side-bar-logo">
       <img src="/img/hhs-logo-inverse.png" alt="HHS Logo">
     </a></div>
   <div class="sidebar-wrapper">
@@ -126,32 +126,34 @@
           </div>
         </li>
       <% } %>
-      <li class="nav-item ">
-        <a class="nav-link collapsed" data-toggle="collapse" href="#appointments" aria-expanded="false">
-          <i class="material-icons">access_time</i>
-          <p>Appointments <b class="caret"></b></p>
-        </a>
-        <div class="collapse" id="appointments">
-          <ul class="nav">
-            <li class="nav-item">
-              <a href="/dashboard/appointments" class="nav-link">
-                <span class="sidebar-normal">All Appointments</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/dashboard/appointments/add" class="nav-link">
-                <span class="sidebar-normal">Book an appointment</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item ">
+      <% if(user.role === 'director') { %>
+        <li class="nav-item ">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#appointments" aria-expanded="false">
+            <i class="material-icons">access_time</i>
+            <p>Appointments <b class="caret"></b></p>
+          </a>
+          <div class="collapse" id="appointments">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="/dashboard/appointments" class="nav-link">
+                  <span class="sidebar-normal">All Appointments</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/dashboard/appointments/add" class="nav-link">
+                  <span class="sidebar-normal">Book an appointment</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      <% } %>
+      <!-- <li class="nav-item ">
         <a class="nav-link" href="./notifications.html">
           <i class="material-icons">notifications</i>
           <p>Notifications</p>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item ">
         <a class="nav-link" href="/dashboard/profile">
           <i class="material-icons">person</i>

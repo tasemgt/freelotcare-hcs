@@ -50,10 +50,12 @@ const factory = require('./handler-factory');
 
 const AppError  = require('../utils/app-error');
 const fileUpload = require('../utils/file_upload');
-const sms = require('../utils/sms');
-const emailService = require('../utils/email');
+// const sms = require('../utils/sms');
+
 const generalUtils = require('../utils/generals');
 const user = require('../models/user/user');
+
+const sendEmail = require('../utils/email');
 
 const {createS3Params} = fileUpload;
 
@@ -156,31 +158,35 @@ exports.agencyFormPage = (req, res) =>{
   });
 }
 
-exports.submitAgencyReg = async(req, res, next) =>{
+exports.submitAgencyReg = async(req, res) =>{
   try {
     const agency = await Agency.create(req.body);
-    
-    //Send email
-    const to = req.body.email;
-    const msg = {
-      subject: `New Agency Created!`,
-      text: `Hello ${agency.name}, \nThanks for enrolling into our platform. Your enrollment ID is '${agency.agencyId}'.\nThis ID is required to complete your registeration into the system. \nRegards.`
-    }
 
-    emailService.sendEmail(to, msg);
+    console.log('New Agency: ', agency);
+
+    //Send email
+    sendEmail({
+      email: req.body.email,
+      subject: 'Agency Enrollment Received',
+      message: `Hello ${agency.name}, \n\nThanks for enrolling into our platform. Here is your enrollment ID: ${agency.agencyId}.\n\nKindly note that this ID is required to complete your registration into the system. \n\nBest Regards,\nFree Lot Care Team`
+    });
+
+    //Send sms
+    // await sms.sendSMS(`${req.body.phone}`, '--------', // process.env.TWILIO_PHONE, 
+    // `Hello ${agency.name}, \nThanks for enrolling into our platform. Your enrollment ID is '${agency.agencyId}'.\nThis ID is required to complete your registeration into the system. \nRegards.`)
 
     res.status(201).json({
       status: 'success',
-      message: 'Application received successfully',
+      message: 'Application submitted successfully!',
       data: {
         agency
       }
     });
 
   } catch (err) {
-    res.status(500).json({
+    res.status(400).json({
       status: 'fail',
-      message: 'An error occurred while submitting your application, please try again later'
+      message: err
     });
   }
 }
@@ -282,13 +288,11 @@ exports.submitEmployment = async(req, res) =>{
     // `Hello ${employment.firstName}, \nThanks for your application. Your application ID is '${employment.applicationId}'.\nGive this ID to your Program Director for your enrollment into the system. \nRegards.`)
 
     //Send email
-    const to = req.body.email;
-    const msg = {
-      subject: `Congrats on Applying!`,
-      text:  `Hello ${employment.firstName}, \nThanks for your application. Your application ID is '${employment.applicationId}'.\nGive this ID to your Program Director for your enrollment into the system. \nRegards.`
-    }
-
-    emailService.sendEmail(to, msg);
+    sendEmail({
+      email: req.body.email,
+      subject: 'Thank You for Applying!',
+      message: `Hello ${employment.firstName}, \n\nThanks for your application. Your application ID is '${employment.applicationId}'.\n\nGive this ID to your Program Director for your enrollment into the system. \n\nBest Regards,\nFree Lot Care Team`
+    });
 
     res.status(201).json({
       status: 'success',
@@ -403,10 +407,10 @@ exports.getAllAppointmentsPage = async(req, res, next) =>{
 
 //-- Profile Page Handlers --//
 exports.profilePage = async (req, res) =>{
-  const user = await User.findById(req.user._id);
+  const us = await User.findById(req.user._id);
   res.status(200).render('dashboard/profile', {
     title: 'Profile',
-    user: user
+    user: us
   });
 };
 

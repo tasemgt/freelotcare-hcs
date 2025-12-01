@@ -15,8 +15,8 @@
         <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">All Users</h4>
-                  <p class="card-category">Lists all Program Directors and Nurses</p>
+                  <h4 class="card-title ">All Staff</h4>
+                  <p class="card-category">Lists all Program Directors and Direct Care Staff</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -66,15 +66,15 @@
                               <%= user.ssn %>
                             </td>
                             <td class="text-primary">
-                              <%= user.agency.name %>
+                              <%= user.agency? user.agency.name : 'N/A' %>
                             </td>
                             <td>
                               <%= user.role %>
                             </td>
                             <td class="text-right">
                               <a href="/dashboard/users/<%= user._id %>" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">person</i></a>
-                              <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                              <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                              <!-- <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a> -->
+                              <!-- <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a> -->
                             </td>
                           </tr>
                         <% } %>

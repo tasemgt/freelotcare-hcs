@@ -39,8 +39,11 @@
                           Phone Number
                         </th>
                         <th class="text-bold">
-                          Forms Uploaded
+                          Behavior Plan
                         </th>
+                        <!-- <th class="text-bold">
+                          Forms Uploaded
+                        </th> -->
                         <th class="text-bold text-right">
                           Actions
                         </th>
@@ -64,13 +67,16 @@
                               <%= consumer.phone %>
                             </td>
                             <td class="text-center">
-                              <%= consumer.forms.length %>
+                              <%= consumer.behaviorPlan %>
                             </td>
+                            <!-- <td class="text-center">
+                              <%= consumer.forms.length %>
+                            </td> -->
                             <td class="text-right">
                               <a rel="tooltip" data-original-title="See Details" href="/dashboard/consumers/<%= consumer._id %>" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">person</i></a>
-                              <a rel="tooltip" data-original-title="Upload Form" href="#" data-toggle="modal" data-target="#consumerFormsModal" class="btn btn-link btn-success btn-just-icon upload-form"><i class="material-icons">upload</i></a>
+                              <!-- <a rel="tooltip" data-original-title="Upload Form" href="#" data-toggle="modal" data-target="#consumerFormsModal" class="btn btn-link btn-success btn-just-icon upload-form"><i class="material-icons">upload</i></a>
                               <a rel="tooltip" data-original-title="Edit" href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                              <a rel="tooltip" data-original-title="Delete" href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                              <a rel="tooltip" data-original-title="Delete" href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a> -->
                             </td>
                           </tr>
                         <% } %>

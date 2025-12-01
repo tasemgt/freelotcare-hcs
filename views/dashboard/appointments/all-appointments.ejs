@@ -34,12 +34,12 @@
                         <th class="text-bold">
                           Time of Appointment
                         </th>
-                        <th class="text-bold">
+                        <!-- <th class="text-bold">
                           Status
-                        </th>
-                        <th class="text-bold text-right">
+                        </th> -->
+                        <!-- <th class="text-bold text-right">
                           Actions
-                        </th>
+                        </th> -->
                       </thead>
                       <tbody>
                         <% for(appointment of appointments){ %>
@@ -56,12 +56,12 @@
                             <td>
                               <%= appointment.time %>
                             </td>
-                            <td>
+                            <!-- <td>
                               <%= appointment.status %>
-                            </td>
-                            <td class="text-right">
+                            </td> -->
+                            <!-- <td class="text-right">
                               <a href="/dashboard/appointments/<%= appointment._id %>" class="btn btn-link btn-info btn-just-icon like show-details"><i class="material-icons">description</i></a>
-                            </td>
+                            </td> -->
                           </tr>
                         <% } %>
                       </tbody>

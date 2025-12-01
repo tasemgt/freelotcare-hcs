@@ -5,8 +5,8 @@ const Staff = require('../models/user/staff');
 const Director = require('../models/user/director');
 const AppError = require('../utils/app-error');
 
-const sms = require('../utils/sms');
-const emailService = require('../utils/email');
+// const sms = require('../utils/sms');
+const sendEmail = require('../utils/email');
 
 
 exports.createUser = async(req, res) =>{
@@ -20,17 +20,24 @@ exports.createUser = async(req, res) =>{
     const user = await Model.create(req.body);
     
     //Send email
-    const to = req.body.email;
-    const msg = {
-      subject: `Congratulations!`,
-      text:  `Hello ${user.firstName},\nYour user account has just been created.
+    // const to = req.body.email;
+    // const msg = {
+    //   subject: `Congratulations!`,
+    //   text:  `Hello ${user.firstName},\nYour user account has just been created.
+    //   \nYour Login is:\nEmail --> ${user.email}\nPassword --> ${password}
+    //   \nRegards.`
+    // }
+    // emailService.sendEmail(to, msg);
+
+    sendEmail({
+      email: req.body.email,
+      subject: 'Congratulations!',
+      message: `Hello ${user.firstName},\n\nYour user account has just been created.
       \nYour Login is:\nEmail --> ${user.email}\nPassword --> ${password}
-      \nRegards.`
-    }
+      \n\nBest Regards,\nFree Lot Care Team`
+    });
 
-    emailService.sendEmail(to, msg);
-
-    console.log('User password>>>>> ', password);
+    // console.log('User password>>>>> ', password);
 
     res.status(201).json({
       status: 'success',
